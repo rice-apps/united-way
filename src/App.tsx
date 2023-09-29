@@ -1,12 +1,18 @@
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import NavBarComp from "./components/NavbarComp";
+import Home from "./pages/Home";
 
 function App() {
-
   return (
     <>
-      <h1>App</h1>
+      <div className="mb-4 ml-4">
+        <NavBarComp />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
