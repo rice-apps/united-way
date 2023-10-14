@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home.tsx'
 import Donation from './pages/Donation/Donation.tsx'
 import NotFound from './pages/NotFound/NotFound.tsx';
-import ImpactCards from './pages/impact-cards/impact-cards.tsx';
+import ImpactCards from './pages/ImpactCards/ImpactCards.tsx';
 
 function Router() {
     return (
