@@ -1,6 +1,9 @@
 
 // button is yelling at me saying that the element might be null and show modal
 // doesn't exist, but it runs fine
+
+// button is yelling at me saying that the element might be null and show modal
+// doesn't exist, but it runs fine
 function ModalTest() {
         // var elem = document.getElementById('my_modal_1')!
         // var onClick = (elem).showModal()
