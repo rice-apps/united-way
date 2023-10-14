@@ -10,6 +10,7 @@ function Router() {
             <Route path="/" element={<Home/>} />
             <Route path="/donation" element={<Donation />} />
             <Route element={<NotFound />} />
+            <Route path="/impact-cards" element={<Donation />} />
       </Routes>
     );
   }
