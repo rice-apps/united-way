@@ -1,17 +1,7 @@
 import { useState } from "react";
-import { uploadFile } from "react-s3";
-
-const S3_BUCKET = "pandastest123456";
-const REGION = "us-east-1";
-const ACCESS_KEY = "";
-const SECRET_ACCESS_KEY = "";
-
-const config = {
-  bucketName: S3_BUCKET,
-  region: REGION,
-  accessKeyId: ACCESS_KEY,
-  secretAccessKey: SECRET_ACCESS_KEY,
-};
+import ReactS3Client from "react-aws-s3-typescript";
+import config from "./s3Config";
+import { UploadResponse } from "react-aws-s3-typescript/dist/types";
 
 const UploadCsv = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -23,23 +13,44 @@ const UploadCsv = () => {
     setSelectedFile(e.target.files[0]);
   };
 
+  // const handleUpload = async (file: File | null) => {
+  //   if (file) {
+  //     try {
+  //       const data = (await uploadFile(file, config)) as ResponseType;
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // };
   const handleUpload = async (file: File | null) => {
+    /* Import s3 config object and call the constructor */
+    const s3 = new ReactS3Client(config);
+
+    // const filename = "filename-to-be-uploaded"; /* Optional */
     if (file) {
       try {
-        const data = (await uploadFile(file, config)) as ResponseType;
+        const data = (await s3.uploadFile(
+          file,
+          JSON.stringify(config),
+        )) as UploadResponse;
         console.log(data);
-      } catch (error) {
-        console.log(error);
+      } catch (exception) {
+        console.log(exception);
+        /* handle the exception */
       }
     }
   };
 
   return (
-    <div className="flex flex-col w-1/4">
-      <div>React S3 File Upload</div>
+    <div className="flex flex-col w-1/4 mx-auto">
+      <div>Please upload your new data here</div>
       <input type="file" onChange={handleFileInput} />
       {selectedFile && (
-        <button className="btn " onClick={() => handleUpload(selectedFile)}>
+        <button
+          className="btn btn-primary  "
+          onClick={() => handleUpload(selectedFile)}
+        >
           {" "}
           Upload to S3
         </button>
