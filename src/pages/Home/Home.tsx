@@ -20,7 +20,7 @@ const Home: React.FC = () => {
     setInputText(newText);
 
     // Call the function that returns the output
-    const processed = multiplyValues(proportions, +newText);
+    const processed = multiplyValues(proportions, +newText); //+newText converts string to number
     setOutputMap(processed);
   };
   const handleFormSubmit = (e: { preventDefault: () => void; }) => {
@@ -62,7 +62,6 @@ const Home: React.FC = () => {
     <div>
       <a className=" normal-case text-m">Home Page</a>
       <div className="form-control w-full max-w-xs">
-
         <form onSubmit={handleFormSubmit}>
           <label htmlFor="Donation Amount">Donation Amount:</label>
             <input 
