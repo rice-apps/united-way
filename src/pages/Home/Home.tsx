@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Home: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [outputMap, setOutputMap] = useState<Record<string, number>>({});
+
+  const history = useNavigate();
   
   // prevents non-numbers to be entered
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -12,7 +15,6 @@ const Home: React.FC = () => {
       event.preventDefault();
     }
   };
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newText = event.target.value;
     setInputText(newText);
@@ -20,6 +22,16 @@ const Home: React.FC = () => {
     // Call the function that returns the output
     const processed = multiplyValues(proportions, +newText);
     setOutputMap(processed);
+  };
+  const handleFormSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    // Serialize the number value into a JSON string
+
+    const jsonData = JSON.stringify(outputMap);
+
+  
+    // Redirect to the next page while passing the JSON string as route state
+    history('/donations', { state: {data: jsonData }});
   };
 
 
@@ -44,30 +56,31 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
+    <div>
       <a className=" normal-case text-m">Home Page</a>
       <div className="form-control w-full max-w-xs">
-        <label className="label">
-          <span className="label-text">Donation Amount</span>
-        </label>
-        <input 
-          type="text" 
-          value={inputText}
-          onKeyPress={handleKeyPress}
-          onChange={handleInputChange}
-          placeholder="Enter a number"
-          className="input input-bordered w-full max-w-xs" 
-        />
-        <p>Input Text: {inputText}</p>
-        {/* right now just outputs string rep of map */}
-        <p>Output Map: {JSON.stringify(outputMap)}</p>
+
+        <form onSubmit={handleFormSubmit}>
+          <label htmlFor="Donation Amount">Donation Amount:</label>
+            <input 
+              type="text" 
+              id = "donationamt"
+              name = "donationamt"
+              value={inputText}
+              onKeyPress={handleKeyPress}
+              onChange={handleInputChange}
+              placeholder="Enter a number"
+              className="input input-bordered w-full max-w-xs" 
+              required
+            />
+         
+          <button type = "submit">Calculate Impact </button>
+        </form>
+        
         <label className="label">
         </label>
       </div>
-      {/* Add useState like <Textfield onEntry = (x) => multiplyValues(proportions, x)>
-      print that out */}
-    </>
-    
+    </div>
   );
 }
 
