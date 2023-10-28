@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/node": "^20.8.6",
+    "aws-sdk": "^2.1483.0",
     "react": "^18.2.0",
     "react-aws-s3-typescript": "^1.1.5",
     "react-dom": "^18.2.0",

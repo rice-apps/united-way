@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactS3Client from "react-aws-s3-typescript";
-import config from "./s3Config";
+import { s3 } from "./s3Config";
 import { UploadResponse } from "react-aws-s3-typescript/dist/types";
 
 const UploadCsv = () => {
@@ -24,22 +24,30 @@ const UploadCsv = () => {
   //   }
   // };
   const handleUpload = async (file: File | null) => {
-    /* Import s3 config object and call the constructor */
-    const s3 = new ReactS3Client(config);
-
-    // const filename = "filename-to-be-uploaded"; /* Optional */
-    if (file) {
-      try {
-        const data = (await s3.uploadFile(
-          file,
-          JSON.stringify(config),
-        )) as UploadResponse;
-        console.log(data);
-      } catch (exception) {
-        console.log(exception);
-        /* handle the exception */
-      }
-    }
+    // const params = {
+    //   Bucket: import.meta.env.VITE_bucketName,
+    //   Key: '/filename.xlsx', // Set the desired path and filename in S3
+    //   Body: file, // The Excel file itself
+    // };
+    // if (file) {
+    //   try {
+    //     const data = (await s3.upload(params));
+    //     console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+    // new Promise<void>((resolve, reject) => {
+    //   s3.upload(params, (err, data) => {
+    //     if (err) {
+    //       console.error('Error uploading file to S3:', err);
+    //       reject(err);
+    //     } else {
+    //       console.log('File uploaded to S3 successfully:', data.Location);
+    //       resolve();
+    //     }
+    //   });
+    // });
   };
 
   return (
