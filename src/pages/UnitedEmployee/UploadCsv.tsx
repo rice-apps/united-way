@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ReactS3Client from "react-aws-s3-typescript";
-import { s3 } from "./s3Config";
-import { UploadResponse } from "react-aws-s3-typescript/dist/types";
+// import ReactS3Client from "react-aws-s3-typescript";
+// import { s3 } from "./s3Config";
+// import { UploadResponse } from "react-aws-s3-typescript/dist/types";
 
 const UploadCsv = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
