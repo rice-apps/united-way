@@ -44,15 +44,18 @@ const Home: React.FC = () => {
         resultHashMap[key] = inputMap[key] * multiplier;
       }
     }
-  
+    resultHashMap["dollarsRaised"]= multiplier
     return resultHashMap;
   };
 
   // dummy proportions used for multiplyValues
   const proportions: Record<string, number> = {
-    'Financial Stability': 0.3,
-    'Early Childhood': 0.5,
-    'Health Care': 0.2,
+    'stability': 0.3,
+    'development': 0.5,
+    'healthcare': 0.2,
+    'escape': 0.1,
+    'basicNeeds': 0.1,
+    'totalPeople': 0.4
   };
 
   return (
