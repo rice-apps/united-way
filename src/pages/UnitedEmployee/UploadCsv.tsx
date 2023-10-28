@@ -24,6 +24,7 @@ const UploadCsv = () => {
   //   }
   // };
   const handleUpload = async (file: File | null) => {
+    console.log(file);
     // const params = {
     //   Bucket: import.meta.env.VITE_bucketName,
     //   Key: '/filename.xlsx', // Set the desired path and filename in S3
