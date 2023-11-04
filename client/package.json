@@ -1,6 +1,7 @@
 {
   "name": "united-way",
   "private": true,
+  "proxy": "http://127.0.0.1:5000",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +16,9 @@
     "@mantine/hooks": "^7.1.7",
     "@tabler/icons-react": "^2.40.0",
     "@types/node": "^20.8.6",
+    "aws-amplify": "^5.3.11",
+    "aws-sdk": "^2.1483.0",
+    "axios": "^1.6.0",
     "embla-carousel-react": "^7.1.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",

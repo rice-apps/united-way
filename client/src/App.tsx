@@ -1,13 +1,13 @@
-import Router from "./Router.tsx"
+import Router from "./Router";
 import NavBarComp from "./components/NavbarComp";
-
+import React from "react";
 function App() {
   return (
     <>
       <div className="App">
         <h1>Card component in process</h1>
         <NavBarComp />
-        <Router/>
+        <Router />
       </div>
     </>
   );
