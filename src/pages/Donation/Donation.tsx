@@ -1,15 +1,18 @@
-// import { useLocation, useNavigate } from "react-router-dom"
-// const location = useLocation();
-// let json = JSON.parse(location.state);
+import { useLocation} from "react-router-dom"
+
 
 //“dollarsRaised”, “stability”, “development”, “healthcare”, “escape”, “basicNeeds”, “totalPeople”, "companyName"
 
 
-let dollarRaised = 0;
-let companyName = "TempComp";
+
 
 function Donation() {
+  const location = useLocation();
+  let json = location.state.data;
+  let dollarRaised =json["dollarsRaised"];
+  let companyName = json["companyName"];
   const goHome = () => {
+
     window.location.href = '/';
   };
 
