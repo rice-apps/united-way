@@ -1,6 +1,7 @@
 {
   "name": "united-way",
   "private": true,
+  "proxy": "http://127.0.0.1:5000",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -11,6 +12,9 @@
   },
   "dependencies": {
     "@types/node": "^20.8.6",
+    "aws-amplify": "^5.3.11",
+    "aws-sdk": "^2.1483.0",
+    "axios": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0"
