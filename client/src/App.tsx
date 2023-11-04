@@ -1,12 +1,12 @@
-import Router from "./Router.tsx"
+import Router from "./Router";
 import NavBarComp from "./components/NavbarComp";
-
+import React from "react";
 function App() {
   return (
     <>
       <div className="mb-4 ml-4">
         <NavBarComp />
-        <Router/>
+        <Router />
       </div>
     </>
   );
