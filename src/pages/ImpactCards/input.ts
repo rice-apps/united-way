@@ -4,6 +4,5 @@ export type CardInputs = {
     numData: number;
     unitText: string;
     descText: string;
-    //color: string;
   };
 
