@@ -1,17 +1,14 @@
 import Router from "./Router.tsx"
 import NavBarComp from "./components/NavbarComp";
-import ImpactCards from "./pages/ImpactCards/ImpactCards.tsx";
 
 function App() {
   return (
     <>
       <div className="App">
         <h1>Card component in process</h1>
-        <h2> props: imgURL, numData, unitTxt, descTxt</h2>
         <NavBarComp />
         <Router/>
-        <ImpactCards imgURL = {"smstr"} numData = {1213} unitText = {"hi"} descText= {"hi"}/> 
-      </div>e
+      </div>
     </>
   );
 }

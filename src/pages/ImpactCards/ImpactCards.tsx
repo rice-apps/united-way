@@ -1,22 +1,27 @@
 
 import { CardInputs } from "./input";
-import { CardImage } from "./cardStyles";
+//import { CardImage } from "./cardStyles";
+import { CSSProperties } from "react";
+//import Tilt from "react-parallax-tilt";
 
-function ImpactCard({ imgURL, numData, unitText }: CardInputs) {
+function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
+
+  const cardStyle : CSSProperties = {
+    textAlign: "center", 
+  };
+
   return (
     <>
-      <a className=" normal-case text-m">Impact Cards Page</a>
-        <div className="card w-1/5 bg-base-100 shadow-md">
-          <CardImage background={imgURL} />
-          <div className="card-body">
-            <h2 className="card-body">families</h2>
-            <p>Got to support to achieve financial stability</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Donate</button>
-            </div>
+        <div className="card w-80 shadow-md" style= {cardStyle}>
+          <figure className="px-6 pt-6 m-0">
+            <img src={imgURL} alt="donation img" className="rounded-xl"/>
+          </figure>
+          <div className="card-body items-center text-center m-0">
+            <h1 className="card-title text-5xl mb-0">{numData}</h1>
+            <h2 className="card-body mb-0">{unitText}</h2>
+            <p>{descText}</p>
           </div>
         </div>
-
     </>
   );
 }
@@ -33,8 +38,6 @@ export default ImpactCard
 // }
 
 // export default Home;
-
-
 //<figure><img src="./assets/donation.jpeg" alt="donation image" /></figure>
 
 //  const Card = ({ title, date, imgUrl }: CardType) => {

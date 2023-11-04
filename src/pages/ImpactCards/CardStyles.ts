@@ -1,6 +1,8 @@
 
 import styled from "styled-components";
 
+// I will use this file as styler!
+
 export const CardImage = styled.div<{ background: string }>`
   grid-area: image;
   background-image: url(${({ background }) => background});
