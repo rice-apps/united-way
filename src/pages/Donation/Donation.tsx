@@ -1,3 +1,13 @@
+// import { useLocation, useNavigate } from "react-router-dom"
+// const location = useLocation();
+// let json = JSON.parse(location.state);
+
+//“dollarsRaised”, “stability”, “development”, “healthcare”, “escape”, “basicNeeds”, “totalPeople”, "companyName"
+
+
+let dollarRaised = 0;
+let companyName = "TempComp";
+
 function Donation() {
   const goHome = () => {
     window.location.href = '/';
@@ -7,27 +17,28 @@ function Donation() {
     window.location.href = '/';
   };
 
-  const company = () => {
-  }
+  return (
+    <>
+      <a className=" normal-case text-m">Donation Page</a>
+      <div></div>
+      <button className="btn" onClick={goHome}>GO HOME</button>
+      <div></div>
 
-    return (
-      <>
-        <a className=" normal-case text-m">Donation Page</a>
-        <div></div>
-        <button className="btn" onClick={goHome}>GO HOME</button>
-        <div></div>
+      <div>
+        Here's what the {companyName} United Way campaign* made possible last year:
+      </div>
+      <div>
+        *based on campaign results of ${dollarRaised}
+      </div>
+      <div>
+        [carousel would go here]
+      </div>
 
-        Here's what the /company/ United Way campaign* made possible last year:
-        <div>
-          *based on campaign results of /enter dollar value/
-        </div>
 
-        <div></div>
+      <button className="btn" onClick={shareResults}>SHARE YOUR RESULTS</button>
 
-        <button className="btn" onClick={shareResults}>SHARE YOUR RESULTS</button>
+    </>
+  );
+}
 
-      </>
-    );
-  }
-  
-  export default Donation;
+export default Donation;
