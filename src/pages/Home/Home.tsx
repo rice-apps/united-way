@@ -29,6 +29,7 @@ const Home: React.FC = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    console.log(name, value)
     setFormData({
       ...formData,
       [name]: value,
@@ -37,8 +38,7 @@ const Home: React.FC = () => {
     // setInputText(newText);
 
     // Call the function that returns the output
-    const processed = multiplyValues(proportionsMap, +formData.donationAmt, formData.companyName); //+newText converts string to number
-    setOutputMap(processed);
+
   };
 
   // const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +50,9 @@ const Home: React.FC = () => {
   const handleFormSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Serialize the number value into a JSON string
-
+    const processed = multiplyValues(proportionsMap, +formData.donationAmt, formData.companyName); //+newText converts string to number
+    setOutputMap(processed);
+    
     const jsonData = JSON.stringify(outputMap);
 
   
@@ -70,6 +72,7 @@ const Home: React.FC = () => {
     }
     resultHashMap["dollarsRaised"]= multiplier
     resultHashMap["companyName"] = companyName
+    console.log(resultHashMap)
     return resultHashMap;
   };
 
@@ -85,25 +88,25 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <a className=" normal-case text-m">Home Page</a>
+      <a className=" normal-case text-xl">Home Page</a>
       <div className="form-control w-full max-w-xs">
         <form onSubmit={handleFormSubmit}>
           <label htmlFor="Company Name">Company Name:</label>
             <input
               type="text" 
               id = "companyname"
-              name = "companyname"
+              name = "companyName"
               value={formData.companyName}
               onChange={handleInputChange}
               placeholder="Enter your company name"
               className="input input-bordered w-full max-w-xs" 
-              required
+              //required
             />
           <label htmlFor="Donation Amount">Donation Amount:</label>
             <input
               type="text" 
               id = "donationamt"
-              name = "donationamt"
+              name = "donationAmt"
               value={formData.donationAmt}
               onKeyPress={handleKeyPress}
               onChange={handleInputChange}
@@ -111,7 +114,7 @@ const Home: React.FC = () => {
               className="input input-bordered w-full max-w-xs" 
               required
             />
-         
+          <div></div>
           <button className="btn btn-outline">Calculate Impact</button>
         </form>
         
