@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+interface FormData {
+  companyName: string;
+  donationAmt: string;
+}
+
 const Home: React.FC = () => {
-  const [inputText, setInputText] = useState('');
-  const [outputMap, setOutputMap] = useState<Record<string, number>>({});
+  //const [inputText, setInputText] = useState('');
+  const [outputMap, setOutputMap] = useState<{ [key: string]: string | number } >({});
+  const [formData, setFormData] = useState<FormData>({
+    companyName: '',
+    donationAmt: '',
+  });
+  //const [companyName, setCompanyName] = useState('');
 
   const history = useNavigate();
   
@@ -15,14 +26,27 @@ const Home: React.FC = () => {
       event.preventDefault();
     }
   };
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newText = event.target.value;
-    setInputText(newText);
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    // const newText = event.target.value;
+    // setInputText(newText);
 
     // Call the function that returns the output
-    const processed = multiplyValues(proportions, +newText); //+newText converts string to number
+    const processed = multiplyValues(proportionsMap, +formData.donationAmt, formData.companyName); //+newText converts string to number
     setOutputMap(processed);
   };
+
+  // const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newText = event.target.value;
+  //   setCompanyName(newText);
+
+  // };
+
   const handleFormSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Serialize the number value into a JSON string
@@ -36,8 +60,8 @@ const Home: React.FC = () => {
 
 
   // processing function that takes in hard-coded map and the input text and returns the result 
-  const multiplyValues = (inputMap: Record<string, number>, multiplier: number): Record<string, number> => {
-    const resultHashMap: Record<string, number> = {};
+  const multiplyValues = (inputMap: { [key: string]: number } , multiplier: number, companyName: string): { [key: string]: string | number }  => {
+    const resultHashMap: { [key: string]: string | number }  = {};
   
     for (const key in inputMap) {
       if (inputMap.hasOwnProperty(key)) {
@@ -45,11 +69,12 @@ const Home: React.FC = () => {
       }
     }
     resultHashMap["dollarsRaised"]= multiplier
+    resultHashMap["companyName"] = companyName
     return resultHashMap;
   };
 
   // dummy proportions used for multiplyValues
-  const proportions: Record<string, number> = {
+  const proportionsMap: { [key: string]:  number }  = {
     'stability': 0.3,
     'development': 0.5,
     'healthcare': 0.2,
@@ -63,12 +88,23 @@ const Home: React.FC = () => {
       <a className=" normal-case text-m">Home Page</a>
       <div className="form-control w-full max-w-xs">
         <form onSubmit={handleFormSubmit}>
+          <label htmlFor="Company Name">Company Name:</label>
+            <input
+              type="text" 
+              id = "companyname"
+              name = "companyname"
+              value={formData.companyName}
+              onChange={handleInputChange}
+              placeholder="Enter your company name"
+              className="input input-bordered w-full max-w-xs" 
+              required
+            />
           <label htmlFor="Donation Amount">Donation Amount:</label>
-            <input 
+            <input
               type="text" 
               id = "donationamt"
               name = "donationamt"
-              value={inputText}
+              value={formData.donationAmt}
               onKeyPress={handleKeyPress}
               onChange={handleInputChange}
               placeholder="Enter a number"
@@ -76,7 +112,7 @@ const Home: React.FC = () => {
               required
             />
          
-          <button type = "submit">Calculate Impact </button>
+          <button className="btn btn-outline">Calculate Impact</button>
         </form>
         
         <label className="label">
