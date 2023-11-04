@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import ImpactCards from "../../pages/ImpactCards/ImpactCards.tsx";
+import donationImpact from "../../assets/donation.jpeg";
+import img1 from "../../assets/img1.png";
+import img2 from "../../assets/img1.png";
+
 // import axios from "axios";
 interface MyData {
   dollarsRaised: number;
@@ -32,13 +37,30 @@ function Home() {
   }, []);
   return (
     <>
-      <a className=" normal-case text-m">Home Page</a>
-      <button className="btn">Button</button>
       <div>
         {typeof data === "undefined" ? (
           <p>loading...</p>
         ) : (
-          data.dollarsRaised
+          <div className="flex flex-row">
+            <ImpactCards
+              imgURL={donationImpact}
+              numData={data.basicNeeds}
+              unitText={"families"}
+              descText={"got support to achieve financial statbility"}
+            />
+            <ImpactCards
+              imgURL={img1}
+              numData={data.development}
+              unitText={"young people"}
+              descText={"helped to succeed in school and in life"}
+            />
+            <ImpactCards
+              imgURL={img2}
+              numData={data.totalPeople}
+              unitText={" people"}
+              descText={"recieved physical and behavioral health card support"}
+            />
+          </div>
           // data.members.map((member, i) => {
           //   <p key={i}>{member}</p>;
           // })

@@ -9,10 +9,10 @@ def api():
     return {
     "dollarsRaised": 500000,
     "stability": 75,
-    "development": 90,
+    "development": 95,
     "healthcare": 85,
     "escape": 60,
-    "basicNeeds": 92,
+    "basicNeeds": 98,
     "totalPeople": 10000
 }
 
