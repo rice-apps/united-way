@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home.tsx'
 import Donation from './pages/Donation/Donation.tsx'
 import NotFound from './pages/NotFound/NotFound.tsx';
+import PDFSave from './pages/PDFSave/PDFSave.tsx';
+
 import ImpactCards from './pages/ImpactCards/ImpactCards.tsx';
 import donationImpact from "./assets/donation.jpeg";
 import img1 from "./assets/img1.png";
@@ -13,6 +15,7 @@ function Router() {
             <Route path="/" element={<Home/>} />
             <Route path="/donation" element={<Donation />} />
             <Route element={<NotFound />} />
+            <Route path="/pdf" element={<PDFSave />} />
             <Route path="/impact-cards" element = {
               <>
                 <ImpactCards imgURL = {donationImpact} numData = {1213} unitText = {"families"} descText= {"got support to achieve financial statbility"}/>
