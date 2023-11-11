@@ -25,6 +25,7 @@ dist-ssr
 client/.env
 backend/.env
 backend/__py__cache
+backend/united-way
 backend/venv
 
 #amplify-do-not-edit-begin
