@@ -59,10 +59,12 @@ const Home: React.FC = () => {
     ); //+newText converts string to number
     setOutputMap(processed);
 
-    const jsonData = JSON.stringify(outputMap);
+    // console.log(processed);
+    // console.log(outputMap);
+    // const jsonData = JSON.stringify(outputMap);
 
     // Redirect to the next page while passing the JSON string as route state
-    history("/donations", { state: { data: jsonData } });
+    history("/donations", { state: { data: processed } });
   };
 
   // processing function that takes in hard-coded map and the input text and returns the result

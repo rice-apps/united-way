@@ -1,0 +1,4 @@
+body {
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  color: hsl(var(--pc));
+}
