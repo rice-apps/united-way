@@ -102,7 +102,7 @@ function Donation() {
             className="bg-slate-600 flex flex-row justify-center align-middle mt-96"
           >
             <img className="w-1/2" src={"src/assets/United-Way-Logo.png"}></img>
-            <div className="flex flex-col mt-32 ml-5 w-1/2">
+            <div className="flex flex-col mt-32 ml-5 w-3/4">
               <p>Dollars Raised = {data.dollarsRaised}</p>
               <p>Stability = {data.stability}</p>
               <p>Development = {data.development}</p>
