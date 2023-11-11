@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Home2 from "../Home2/Home2";
+//import Home2 from "../Home2/Home2";
 
 interface FormData {
   companyName: string;
@@ -9,9 +9,6 @@ interface FormData {
 
 const Home: React.FC = () => {
   //const [inputText, setInputText] = useState('');
-  const [outputMap, setOutputMap] = useState<{
-    [key: string]: string | number;
-  }>({});
   const [formData, setFormData] = useState<FormData>({
     companyName: "",
     donationAmt: "",
@@ -57,11 +54,6 @@ const Home: React.FC = () => {
       +formData.donationAmt,
       formData.companyName,
     ); //+newText converts string to number
-    setOutputMap(processed);
-
-    // console.log(processed);
-    // console.log(outputMap);
-    // const jsonData = JSON.stringify(outputMap);
 
     // Redirect to the next page while passing the JSON string as route state
     history("/donations", { state: { data: processed } });
@@ -82,7 +74,7 @@ const Home: React.FC = () => {
     }
     resultHashMap["dollarsRaised"] = multiplier;
     resultHashMap["companyName"] = companyName;
-    console.log(resultHashMap);
+
     return resultHashMap;
   };
 
