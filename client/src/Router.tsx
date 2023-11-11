@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home2/Home.tsx";
+import Home from "./pages/Home/Home.tsx";
 import Donation from "./pages/Donation/Donation.tsx";
+import modalFuncs from './pages/ModalTest/ModalTest.tsx';
 import NotFound from "./pages/NotFound/NotFound.tsx";
 import ImpactCarousel from "./components/ImpactCarousel/ImpactCarousel.tsx";
 import PDFSave from "./pages/PDFSave/PDFSave.tsx";
@@ -14,8 +15,9 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/donation" element={<Donation />} />
+      <Route path="/donations" element={<Donation />} />
       {/* display the impact carousel object on a separate page (route there) */}
+      <Route path="/ModalTest" element={<modalFuncs.ResultsModal />} />
       <Route path="/carousel" element={<ImpactCarousel />} />
       <Route element={<NotFound />} />
       <Route path="/pdf" element={<PDFSave />} />

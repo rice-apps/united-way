@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ImpactCards from "../ImpactCards/ImpactCards.tsx";
 import donationImpact from "../../assets/donation.jpeg";
 import img1 from "../../assets/img1.png";
@@ -15,7 +15,7 @@ interface MyData {
   totalPeople: number;
 }
 // const apiURL = "http://localhost:5000"
-function Home() {
+function Home2() {
   const [data, setData] = useState<MyData>();
 
   useEffect(() => {
@@ -70,4 +70,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home2;
