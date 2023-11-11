@@ -57,7 +57,7 @@ const Home: React.FC = () => {
 
   
     // Redirect to the next page while passing the JSON string as route state
-    history('/donations', { state: {data: jsonData }});
+    history('/donation', { state: {data: jsonData }});
   };
 
 

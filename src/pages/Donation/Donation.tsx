@@ -20,22 +20,23 @@ function Donation() {
   return (
     <>
       <a className=" normal-case text-m">Donation Page</a>
-      <div></div>
-      <button className="btn" onClick={goHome}>GO HOME</button>
-      <div></div>
-
-      <div>
+      <center>
+        <button className="btn" onClick={goHome}>GO HOME</button>
+      </center>
+      
+      <center>
         Here's what the {companyName} United Way campaign* made possible last year:
-      </div>
-      <div>
+      </center>
+      <center>
         *based on campaign results of ${dollarRaised}
-      </div>
-      <div>
+      </center>
+      <center>
         [carousel would go here]
-      </div>
+      </center>
 
-
-      <button className="btn" onClick={shareResults}>SHARE YOUR RESULTS</button>
+      <center>
+        <button className="btn" onClick={shareResults}>SHARE YOUR RESULTS</button>
+      </center>
 
     </>
   );
