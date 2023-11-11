@@ -2,7 +2,10 @@
 // const location = useLocation();
 // let json = JSON.parse(location.state);
 
+import Demo from "../../components/ImpactCarousel/ImpactCarousel";
 import Home2 from "../Home2/Home2";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 
 //“dollarsRaised”, “stability”, “development”, “healthcare”, “escape”, “basicNeeds”, “totalPeople”, "companyName"
 
@@ -33,9 +36,12 @@ function Donation() {
       </div>
       <div>*based on campaign results of ${dollarRaised}</div>
       <div>
+        <Demo />
+      </div>
+      {/* <div>
         [carousel would go here]
         <Home2 />
-      </div>
+      </div> */}
 
       <button className="btn" onClick={shareResults}>
         SHARE YOUR RESULTS

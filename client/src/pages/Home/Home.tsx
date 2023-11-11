@@ -95,40 +95,41 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
-      <a className=" normal-case text-xl">Home Page</a>
-      <div className="form-control w-full max-w-xs">
-        <form onSubmit={handleFormSubmit}>
-          <label htmlFor="Company Name">Company Name:</label>
-          <input
-            type="text"
-            id="companyname"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleInputChange}
-            placeholder="Enter your company name"
-            className="input input-bordered w-full max-w-xs"
-            //required
-          />
-          <label htmlFor="Donation Amount">Donation Amount:</label>
-          <input
-            type="text"
-            id="donationamt"
-            name="donationAmt"
-            value={formData.donationAmt}
-            onKeyPress={handleKeyPress}
-            onChange={handleInputChange}
-            placeholder="Enter a number"
-            className="input input-bordered w-full max-w-xs"
-            required
-          />
-          <div></div>
-          <button className="btn btn-outline">Calculate Impact</button>
-        </form>
+    <div className="w-full">
+      <div className="mx-auto">
+        <a className=" normal-case text-xl">Home Page</a>
+        <div className="form-control w-full max-w-xs">
+          <form onSubmit={handleFormSubmit}>
+            <label htmlFor="Company Name">Company Name:</label>
+            <input
+              type="text"
+              id="companyname"
+              name="companyName"
+              value={formData.companyName}
+              onChange={handleInputChange}
+              placeholder="Enter your company name"
+              className="input input-bordered w-full max-w-xs"
+              //required
+            />
+            <label htmlFor="Donation Amount">Donation Amount:</label>
+            <input
+              type="text"
+              id="donationamt"
+              name="donationAmt"
+              value={formData.donationAmt}
+              onKeyPress={handleKeyPress}
+              onChange={handleInputChange}
+              placeholder="Enter a number"
+              className="input input-bordered w-full max-w-xs"
+              required
+            />
+            <div></div>
+            <button className="btn btn-outline">Calculate Impact</button>
+          </form>
 
-        <label className="label"></label>
+          <label className="label"></label>
+        </div>
       </div>
-      {/* <Home2 /> */}
     </div>
   );
 };

@@ -5,13 +5,22 @@ import { IconArrowRight, IconArrowLeft } from "@tabler/icons-react";
 /* import mantine ui components needed for the impact carousel object */
 // import "@mantine/core/styles.css";
 // import "@mantine/carousel/styles.css";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, createTheme } from "@mantine/core";
+import ImpactCards from "../../pages/ImpactCards/ImpactCards";
+import donationImpact from "../../assets/donation.jpeg";
+import img1 from "../../assets/img1.png";
+import img2 from "../../assets/img1.png";
+
+const theme = createTheme({
+  fontFamily: "Open Sans, sans-serif",
+  // primaryColor: "cyan",
+});
 
 function Demo() {
   return (
     /* create a new carousel object with the given design components */
     <div style={{ height: 400, display: "flex", margin: 100 }}>
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <Carousel
           withIndicators
           height="100%"
@@ -35,7 +44,7 @@ function Demo() {
         >
           {/* fill the carousel with slides */}
           <Carousel.Slide>
-            <h1
+            {/* <h1
               style={{
                 color: "white",
                 position: "absolute",
@@ -50,6 +59,12 @@ function Demo() {
               src="https://coolbackgrounds.io/images/backgrounds/blue/blue-background-088FDC-8ecd0503.jpg"
               alt=""
               style={{ width: "100%", height: "100%", borderRadius: 25 }}
+            /> */}
+            <ImpactCards
+              imgURL={donationImpact}
+              numData={1213}
+              unitText={"families"}
+              descText={"got support to achieve financial statbility"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -64,10 +79,11 @@ function Demo() {
             >
               2
             </h1>
-            <img
-              src="https://coolbackgrounds.io/images/backgrounds/blue/blue-background-088FDC-8ecd0503.jpg"
-              alt=""
-              style={{ width: "100%", height: "100%", borderRadius: 25 }}
+            <ImpactCards
+              imgURL={img1}
+              numData={452}
+              unitText={"young people"}
+              descText={"helped to succeed in school and in life"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -82,10 +98,11 @@ function Demo() {
             >
               3
             </h1>
-            <img
-              src="https://coolbackgrounds.io/images/backgrounds/blue/blue-background-088FDC-8ecd0503.jpg"
-              alt=""
-              style={{ width: "100%", height: "100%", borderRadius: 25 }}
+            <ImpactCards
+              imgURL={img2}
+              numData={1452}
+              unitText={" people"}
+              descText={"recieved physical and behavioral health card support"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
