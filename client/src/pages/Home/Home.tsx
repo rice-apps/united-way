@@ -91,37 +91,41 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-row justify-center align-middle w-full">
       <div className="mx-auto">
-        <a className=" normal-case text-xl">Please Enter</a>
+        <p className=" normal-case text-xl text-center">
+          Calculate Your Impact
+        </p>
         <div className="form-control w-full max-w-xs">
           <form onSubmit={handleFormSubmit}>
-            <div className="mt-3">
-              <label htmlFor="Company Name">Company Name:</label>
-              <input
-                type="text"
-                id="companyname"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleInputChange}
-                placeholder="Enter your company name"
-                className="input input-bordered w-full max-w-xs mt-3"
-                //required
-              />
+            <div className="flex flex-col justify-center align-middle">
+              <div className="mt-6">
+                <label htmlFor="Company Name">Company Name:</label>
+                <input
+                  type="text"
+                  id="companyname"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your company name"
+                  className="input input-bordered w-full max-w-xs mt-3"
+                  //required
+                />
+              </div>
+              <div className="mt-6">
+                <label htmlFor="Donation Amount">Donation Amount:</label>
+                <input
+                  type="text"
+                  id="donationamt"
+                  name="donationAmt"
+                  value={formData.donationAmt}
+                  onKeyPress={handleKeyPress}
+                  onChange={handleInputChange}
+                  placeholder="Enter a number"
+                  className="input input-bordered w-full max-w-xs mt-3"
+                  required
+                />
+              </div>
+              <button className="btn btn-outline mt-6">Calculate Impact</button>
             </div>
-            <div className="mt-3">
-              <label htmlFor="Donation Amount">Donation Amount:</label>
-              <input
-                type="text"
-                id="donationamt"
-                name="donationAmt"
-                value={formData.donationAmt}
-                onKeyPress={handleKeyPress}
-                onChange={handleInputChange}
-                placeholder="Enter a number"
-                className="input input-bordered w-full max-w-xs mt-3"
-                required
-              />
-            </div>
-            <button className="btn btn-outline">Calculate Impact</button>
           </form>
 
           <label className="label"></label>

@@ -11,9 +11,14 @@ import "./carousel.css";
 
 import { MantineProvider } from "@mantine/core";
 import ImpactCards from "../../pages/ImpactCards/ImpactCards";
-import donationImpact from "../../assets/donation.jpeg";
-import img1 from "../../assets/img1.png";
-import img2 from "../../assets/img1.png";
+// import img2 from "../../assets/img2.png";
+
+import needs from "../../assets/violence.png";
+import violence from "../../assets/violence.png";
+import health from "../../assets/health.png";
+import youth from "../../assets/youth.png";
+import financial from "../../assets/financial.png";
+import totalPeopleImg from "../../assets/totalPeople.png";
 
 // const theme = createTheme({
 //   fontFamily: "Open Sans, sans-serif",
@@ -79,10 +84,10 @@ function ImpactCarousel({
           {/* fill the carousel with slides */}
           <Carousel.Slide>
             <ImpactCards
-              imgURL={donationImpact}
+              imgURL={financial}
               numData={stability}
-              unitText={"Stability"}
-              descText={"got support to achieve financial statbility"}
+              unitText={"Financial Stability"}
+              descText={"Supported families to achieve financial stability"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -98,10 +103,10 @@ function ImpactCarousel({
               2
             </h1>
             <ImpactCards
-              imgURL={img1}
+              imgURL={youth}
               numData={development}
-              unitText={"Development"}
-              descText={"helped to succeed in school and in life"}
+              unitText={"Youth Development"}
+              descText={"Supporting youth to succeed in school and in life"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -117,10 +122,10 @@ function ImpactCarousel({
               3
             </h1>
             <ImpactCards
-              imgURL={img2}
+              imgURL={health}
               numData={healthcare}
-              unitText={"Healthcare"}
-              descText={"recieved physical and behavioral health card support"}
+              unitText={"Health Care"}
+              descText={"Support people undergoing health care support"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -136,10 +141,10 @@ function ImpactCarousel({
               3
             </h1>
             <ImpactCards
-              imgURL={img2}
+              imgURL={violence}
               numData={escape}
-              unitText={"Escape"}
-              descText={"recieved physical and behavioral health card support"}
+              unitText={"Escape from Violence"}
+              descText={"Support people to escape violent situations"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -155,10 +160,10 @@ function ImpactCarousel({
               3
             </h1>
             <ImpactCards
-              imgURL={img2}
+              imgURL={needs}
               numData={basicNeeds}
               unitText={"Basic Needs"}
-              descText={"recieved physical and behavioral health card support"}
+              descText={"Support people with basic needs like food and shelter"}
             />
           </Carousel.Slide>
           <Carousel.Slide>
@@ -174,10 +179,12 @@ function ImpactCarousel({
               3
             </h1>
             <ImpactCards
-              imgURL={img2}
+              imgURL={totalPeopleImg}
               numData={totalPeople}
               unitText={"Total People"}
-              descText={"recieved physical and behavioral health card support"}
+              descText={
+                "Number of people whose lives you've improved via our services"
+              }
             />
           </Carousel.Slide>
           {/* <Carousel.Slide>

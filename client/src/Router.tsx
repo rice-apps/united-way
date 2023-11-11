@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home.tsx";
 import Donation from "./pages/Donation/Donation.tsx";
-import modalFuncs from './pages/ModalTest/ModalTest.tsx';
+import modalFuncs from "./pages/ModalTest/ModalTest.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
 import ImpactCarousel from "./components/ImpactCarousel/ImpactCarousel.tsx";
 import PDFSave from "./pages/PDFSave/PDFSave.tsx";
@@ -18,34 +18,9 @@ function Router() {
       <Route path="/donations" element={<Donation />} />
       {/* display the impact carousel object on a separate page (route there) */}
       <Route path="/ModalTest" element={<modalFuncs.ResultsModal />} />
-      <Route path="/carousel" element={<ImpactCarousel />} />
+      {/* <Route path="/carousel" element={<ImpactCarousel />} /> */}
       <Route element={<NotFound />} />
       <Route path="/pdf" element={<PDFSave />} />
-      <Route
-        path="/impact-cards"
-        element={
-          <>
-            <ImpactCards
-              imgURL={donationImpact}
-              numData={1213}
-              unitText={"families"}
-              descText={"got support to achieve financial statbility"}
-            />
-            <ImpactCards
-              imgURL={img1}
-              numData={452}
-              unitText={"young people"}
-              descText={"helped to succeed in school and in life"}
-            />
-            <ImpactCards
-              imgURL={img2}
-              numData={1452}
-              unitText={" people"}
-              descText={"recieved physical and behavioral health card support"}
-            />
-          </>
-        }
-      />
     </Routes>
   );
 }
