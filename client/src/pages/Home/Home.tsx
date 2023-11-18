@@ -55,10 +55,8 @@ const Home: React.FC = () => {
       formData.companyName,
     ); //+newText converts string to number
 
-    const jsonData = processed;
-
     // Redirect to the next page while passing the JSON string as route state
-    history("/donations", { state: { data: jsonData } });
+    history("/donations", { state: { data: processed } });
   };
 
   // processing function that takes in hard-coded map and the input text and returns the result
@@ -91,36 +89,43 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex flex-row justify-center align-middle w-full">
       <div className="mx-auto">
-        <a className=" normal-case text-xl">Home Page</a>
+        <p className=" normal-case text-xl text-center">
+          Calculate Your Impact
+        </p>
         <div className="form-control w-full max-w-xs">
           <form onSubmit={handleFormSubmit}>
-            <label htmlFor="Company Name">Company Name:</label>
-            <input
-              type="text"
-              id="companyname"
-              name="companyName"
-              value={formData.companyName}
-              onChange={handleInputChange}
-              placeholder="Enter your company name"
-              className="input input-bordered w-full max-w-xs"
-              //required
-            />
-            <label htmlFor="Donation Amount">Donation Amount:</label>
-            <input
-              type="text"
-              id="donationamt"
-              name="donationAmt"
-              value={formData.donationAmt}
-              onKeyPress={handleKeyPress}
-              onChange={handleInputChange}
-              placeholder="Enter a number"
-              className="input input-bordered w-full max-w-xs"
-              required
-            />
-            <div></div>
-            <button className="btn btn-outline">Calculate Impact</button>
+            <div className="flex flex-col justify-center align-middle">
+              <div className="mt-6">
+                <label htmlFor="Company Name">Company Name:</label>
+                <input
+                  type="text"
+                  id="companyname"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  placeholder="Enter your company name"
+                  className="input input-bordered w-full max-w-xs mt-3"
+                  //required
+                />
+              </div>
+              <div className="mt-6">
+                <label htmlFor="Donation Amount">Donation Amount:</label>
+                <input
+                  type="text"
+                  id="donationamt"
+                  name="donationAmt"
+                  value={formData.donationAmt}
+                  onKeyPress={handleKeyPress}
+                  onChange={handleInputChange}
+                  placeholder="Enter a number"
+                  className="input input-bordered w-full max-w-xs mt-3"
+                  required
+                />
+              </div>
+              <button className="btn btn-outline mt-6">Calculate Impact</button>
+            </div>
           </form>
 
           <label className="label"></label>
