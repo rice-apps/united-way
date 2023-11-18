@@ -7,7 +7,7 @@ function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
         <figure className="px-6 pt-6 m-0">
           <img src={imgURL} alt="donation img" className="rounded-xl" />
         </figure>
-        <div className="card-body items-center text-center m-0">
+        <div className="card-body items-center text-center ">
           <h1 className="card-title text-5xl mb-0">{numData}</h1>
           <h2 className="card-body mb-0">{unitText}</h2>
           <p>{descText}</p>

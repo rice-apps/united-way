@@ -59,20 +59,38 @@ function Donation() {
     <>
       <div>
         <div className="flex flex-col justify-center align-middle w-full">
-          {/* <a className=" normal-case text-m mx-auto">Donation Page</a> */}
-          <div className="flex flex-col mx-auto mb-5">
-            <a className="text-xl font-semibold text-center">
-              Here's what the {data.companyName} United Way campaign{" "}
-            </a>
-            <a className="text-lg font-semibold text-center">
-              made possible last year
-            </a>
-            <a className="text-xl  text-center">
-              Based on campaign results of{" "}
-              <span className="font-bold text-2xl">${data.dollarsRaised}</span>
-            </a>
+          <div className="flex align-baseline w-full  ml-72">
+            <div className="flex flex-col mx-auto mb-5">
+              <a className="text-xl font-semibold text-center">
+                Here's what the {data.companyName} United Way campaign{" "}
+              </a>
+              <a className="text-lg font-semibold text-center">
+                made possible last year
+              </a>
+              <a className="text-xl  text-center">
+                Based on campaign results of{" "}
+                <span className="font-bold text-2xl">
+                  ${data.dollarsRaised}
+                </span>
+              </a>
+            </div>
+            <div className="flex flex-col w-1/2 pl-48">
+              <button
+                className="btn btn-primary w-1/6"
+                onClick={handleDownloadPdf}
+              >
+                Save as PDF
+              </button>
+              <button
+                className="btn btn-primary w-1/6"
+                onClick={handleDownloadImage}
+              >
+                Save as JPG
+              </button>
+            </div>
           </div>
-          <div className="mb-5">
+          {/* <a className=" normal-case text-m mx-auto">Donation Page</a> */}
+          <div className="mt-2">
             <ImpactCarousel
               dollarsRaised={data.dollarsRaised}
               stability={data.stability}
@@ -83,20 +101,7 @@ function Donation() {
               totalPeople={data.totalPeople}
             />
           </div>
-          <div className="flex flex-row w-full justify-between align-middle">
-            <button
-              className="btn btn-primary w-1/6"
-              onClick={handleDownloadPdf}
-            >
-              Download as PDF
-            </button>
-            <button
-              className="btn btn-primary w-1/6 mx-auto"
-              onClick={handleDownloadImage}
-            >
-              Download as JPG
-            </button>
-          </div>
+
           <div
             ref={downloadRef}
             className="bg-slate-600 flex flex-row justify-center align-middle mt-96"
