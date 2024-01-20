@@ -5,9 +5,11 @@ export default {
   theme: {
     extend: {
       // can add or overridee styles here
-      // colors: {
-      //   customBlue: colors.lightBlue,
-      // },
+      colors: {
+        'blue': '#015191',
+        'purple': '#804B67',
+        'red': '#EF4643',
+      }
     },
   },
   daisyui: {

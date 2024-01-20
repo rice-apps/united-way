@@ -89,49 +89,135 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center align-middle w-full">
-      <div className="mx-auto">
-        <p className=" normal-case text-xl text-center">
-          Calculate Your Impact
+    <div className="flex flex-row justify-center items-center w-full">
+    <div className="mx-auto w-full max-w-xl">
+        <p className="normal-case text-xl text-center">
+            Calculate Your Impact
         </p>
-        <div className="form-control w-full max-w-xs">
-          <form onSubmit={handleFormSubmit}>
-            <div className="flex flex-col justify-center align-middle">
-              <div className="mt-6">
-                <label htmlFor="Company Name">Company Name:</label>
-                <input
-                  type="text"
-                  id="companyname"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="Enter your company name"
-                  className="input input-bordered w-full max-w-xs mt-3"
-                  //required
-                />
-              </div>
-              <div className="mt-6">
-                <label htmlFor="Donation Amount">Donation Amount:</label>
-                <input
-                  type="text"
-                  id="donationamt"
-                  name="donationAmt"
-                  value={formData.donationAmt}
-                  onKeyPress={handleKeyPress}
-                  onChange={handleInputChange}
-                  placeholder="Enter a number"
-                  className="input input-bordered w-full max-w-xs mt-3"
-                  required
-                />
-              </div>
-              <button className="btn btn-outline mt-6">Calculate Impact</button>
-            </div>
-          </form>
-
-          <label className="label"></label>
+        <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg form-control w-full max-w-xl">
+            <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
+            
+                <div className="mt-6 w-full flex flex-col items-center">
+                    <label htmlFor="companyname" className="mb-1 rounded-lg" style={{ marginRight: '190px' }}>Company Name:</label>
+                    <div></div>
+                    <input
+                        type="text"
+                        id="companyname"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleInputChange}
+                        placeholder="Enter your company name"
+                        className="input input-bordered w-full max-w-xs mt-3 rounded-full border-white"
+                        // required
+                    />
+                </div>
+                <div className="mt-6 w-full flex flex-col items-center"> {/* Updated this line */}
+                    <label htmlFor="donationamt" style={{ marginRight: '180px' }}>Donation Amount:</label>
+                    <div></div>
+                    <input
+                        type="text"
+                        id="donationamt"
+                        name="donationAmt"
+                        value={formData.donationAmt}
+                        onKeyPress={handleKeyPress}
+                        onChange={handleInputChange}
+                        placeholder="Enter a number"
+                        className="input input-bordered w-full max-w-xs mt-3 rounded-full border-white"
+                        required
+                    />
+                </div>
+                <button className="btn btn-outline mt-6">Calculate Impact</button>
+            </form>
+            <label className="label"></label>
         </div>
-      </div>
     </div>
+</div>
+
+    //     <div className="flex flex-row justify-center items-center w-full">
+    //     <div className="mx-auto w-full max-w-xl">
+    //         <p className="normal-case text-xl text-center">
+    //             Calculate Your Impact
+    //         </p>
+    //         <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg form-control w-full max-w-xl">
+    //             <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
+    //                 <div className="mt-6 w-full">
+    //                     <label htmlFor="Company Name">Company Name:</label>
+    //                     <div></div>
+    //                     <input
+    //                         type="text"
+    //                         id="companyname"
+    //                         name="companyName"
+    //                         value={formData.companyName}
+    //                         onChange={handleInputChange}
+    //                         placeholder="Enter your company name"
+    //                         className="input input-bordered w-full max-w-xs mt-3"
+    //                         // required
+    //                     />
+    //                 </div>
+    //                 <div className="mt-6 w-full">
+    //                     <label htmlFor="Donation Amount">Donation Amount:</label>
+    //                     <div></div>
+    //                     <input
+    //                         type="text"
+    //                         id="donationamt"
+    //                         name="donationAmt"
+    //                         value={formData.donationAmt}
+    //                         onKeyPress={handleKeyPress}
+    //                         onChange={handleInputChange}
+    //                         placeholder="Enter a number"
+    //                         className="input input-bordered w-full max-w-xs mt-3"
+    //                         required
+    //                     />
+    //                 </div>
+    //                 <button className="btn btn-outline mt-6">Calculate Impact</button>
+    //             </form>
+    //             <label className="label"></label>
+    //         </div>
+    //     </div>
+    // </div>
+
+    // <div className="flex flex-row justify-center align-middle w-full">
+    // <div className="mx-auto align-middle w-full">
+    //     <p className=" normal-case text-xl text-center">
+    //     Calculate Your Impact
+    //     </p>
+    //     <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg form-control w-full max-w-xl">
+    //         <form onSubmit={handleFormSubmit}>
+    //             <div className="flex flex-col justify-center align-middle">
+    //                 <div className="mt-6">
+    //                     <label htmlFor="Company Name">Company Name:</label>
+    //                     <input
+    //                     type="text"
+    //                     id="companyname"
+    //                     name="companyName"
+    //                     value={formData.companyName}
+    //                     onChange={handleInputChange}
+    //                     placeholder="Enter your company name"
+    //                     className="input input-bordered w-full max-w-xs mt-3"
+    //                     //required
+    //                     />
+    //                 </div>
+    //                 <div className="mt-6">
+    //                     <label htmlFor="Donation Amount">Donation Amount:</label>
+    //                     <input
+    //                     type="text"
+    //                     id="donationamt"
+    //                     name="donationAmt"
+    //                     value={formData.donationAmt}
+    //                     onKeyPress={handleKeyPress}
+    //                     onChange={handleInputChange}
+    //                     placeholder="Enter a number"
+    //                     className="input input-bordered w-full max-w-xs mt-3"
+    //                     required
+    //                     />
+    //                 </div>
+    //                 <button className="btn btn-outline mt-6">Calculate Impact</button>
+    //             </div>
+    //         </form>
+    //         <label className="label"></label>
+    //     </div>
+    // </div>
+    // </div>
   );
 };
 
