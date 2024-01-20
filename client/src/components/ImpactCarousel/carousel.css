@@ -1,4 +1,11 @@
-body {
+/* body {
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
   color: hsl(var(--pc));
+} */
+
+.card-wrapper {
+  /* position: absolute; */
+  grid-row-start: 1;
+  grid-column-start: 1;
+  transition: all 1s ease, opacity 1s ease;
 }
