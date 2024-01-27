@@ -1,13 +1,14 @@
-// import { useLocation, useNavigate } from "react-router-dom"
-// const location = useLocation();
-// let json = JSON.parse(location.state);
-
-// import Demo from "../../components/ImpactCarousel/ImpactCarousel";
 import { useLocation } from "react-router-dom";
 import ImpactCarousel from "../../components/ImpactCarousel/ImpactCarousel";
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+
+/**
+ * 
+ * 
+ */
+
 
 function Donation() {
   const downloadRef = React.createRef<HTMLDivElement>();
