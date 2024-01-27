@@ -11,9 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@mantine/carousel": "^7.1.7",
     "@mantine/core": "^7.1.7",
     "@mantine/hooks": "^7.1.7",
+    "@mui/material": "^5.15.6",
     "@tabler/icons-react": "^2.40.0",
     "@types/node": "^20.8.6",
     "aws-amplify": "^5.3.11",
