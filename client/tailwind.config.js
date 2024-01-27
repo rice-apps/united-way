@@ -4,11 +4,18 @@ export default {
 
   theme: {
     extend: {
-      // can add or overridee styles here
-      // colors: {
-      //   customBlue: colors.lightBlue,
-      // },
-    },
+      scale: {
+        '80': '0.8',
+        '70': '0.7',
+        '60': '0.6',
+      },
+      brightness: {
+        '25': '.25',
+      },
+      'translate': {
+        '30': '7.5rem',
+      },
+    }
   },
   daisyui: {
     themes: ["light", "dark", "cupcake"],
