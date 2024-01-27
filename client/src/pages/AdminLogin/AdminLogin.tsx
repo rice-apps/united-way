@@ -35,20 +35,25 @@ function AdminLogin() {
                 // PLACEHOLDER - alert saying "Submitted!"
                 alert("submitted!");
               };
+
+              const [password, setPassword] = useState("");
+              const [showPassword, setShowPassword] = useState(false);
              
               return (
                 <div className="flex flex-row justify-center align-middle w-full">
-                  <div className="mx-auto">
+                  <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg mx-auto p-5">
                     <p className=" normal-case text-xl text-center">
                       Admin Sign in
                     </p>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full max-w-xl">
                       <form onSubmit={handleFormSubmit}>
                         <div className="flex flex-col justify-center align-middle">
                           <div className="mt-6">
                             <label htmlFor="PIN Number">PIN Number</label>
                             <input
-                              type="password"
+                              type={
+                                showPassword ? "text" : "password"
+                              }
                               id="pinNumber"
                               name="pinNumber"
                               value={formData.pinNumber}
@@ -56,6 +61,15 @@ function AdminLogin() {
                               placeholder="Enter PIN number"
                               className="input input-bordered w-full max-w-xs mt-3"
                               //required
+                            />
+                            <br />
+                            <label form ="check">Show Pin Number</label>
+                            <input
+                              id="check"
+                              type="checkbox"
+                              onChange={() =>
+                              setShowPassword((prev) => !prev)
+                              }
                             />
                           </div>
                           
