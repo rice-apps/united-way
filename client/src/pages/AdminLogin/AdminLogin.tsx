@@ -33,7 +33,27 @@ function AdminLogin() {
               const handleFormSubmit = (e: { preventDefault: () => void }) => {
                 e.preventDefault();
                 // PLACEHOLDER - alert saying "Submitted!"
-                alert("submitted!");
+                const verifyPIN = async (pin: string) => {
+                  try {
+                    const res = await fetch("http://127.0.0.1:5000/verify-pin", {
+                      method: 'Post',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({pin: pin})
+                    });
+                    if (!res.ok) {
+                      throw new Error(res.statusText);
+                    }
+                    console.log(res);
+                    const resJSON = await res.json();
+                    console.log(resJSON);
+                    alert(resJSON['message'])
+                  } catch (error) {
+                    console.error("Error verifying PIN:", error);
+                  }
+                };
+                verifyPIN(formData.pinNumber)
               };
              
               return (
