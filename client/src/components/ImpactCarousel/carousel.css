@@ -7,5 +7,10 @@
   /* position: absolute; */
   grid-row-start: 1;
   grid-column-start: 1;
-  transition: all 1s ease, opacity 1s ease;
+  transition: all 0.75s ease, opacity 0.5s ease;
+}
+
+.btn {
+  margin-left: 50px;
+  margin-right: 50px;
 }
