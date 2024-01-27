@@ -88,28 +88,42 @@ const Home: React.FC = () => {
     totalPeople: 0.4,
   };
 
+  const [mode, setMode] = useState('company'); 
+
+  const toggleMode = () => {
+    setMode(mode === 'full' ? 'donationOnly' : 'full');
+  };
+
   return (
     <div className="flex flex-row justify-center align-middle w-full">
       <div className="mx-auto">
-        <p className=" normal-case text-xl text-center">
+        <p className="normal-case text-xl text-center font-bold">
           Calculate Your Impact
         </p>
+
+        <button onClick={toggleMode} className="btn btn-outline mt-6">
+          {mode === 'full' ? 'I am an INDIVIDUAL' : 'I am company'}
+        </button>
+
+
         <div className="form-control w-full max-w-xs">
           <form onSubmit={handleFormSubmit}>
             <div className="flex flex-col justify-center align-middle">
-              <div className="mt-6">
-                <label htmlFor="Company Name">Company Name:</label>
-                <input
-                  type="text"
-                  id="companyname"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="Enter your company name"
-                  className="input input-bordered w-full max-w-xs mt-3"
-                  //required
-                />
-              </div>
+              
+              {mode === 'full' && (
+                  <div className="mt-6">
+                    <label htmlFor="Company Name">Company Name:</label>
+                    <input
+                      type="text"
+                      id="companyname"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleInputChange}
+                      placeholder="Enter your company name"
+                      className="input input-bordered w-full max-w-xs mt-3"
+                    />
+                  </div>
+                )}
               <div className="mt-6">
                 <label htmlFor="Donation Amount">Donation Amount:</label>
                 <input
