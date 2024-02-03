@@ -56,6 +56,11 @@ function Donation() {
   // console.log(location.state.data);
   const data = location.state.data;
 
+  var label = "Here's what your donation"
+  if (data.companyName) {
+    label = `Here's what the ${data.companyName} United Way campaign`
+  }
+
   return (
     <>
       <div>
@@ -63,7 +68,7 @@ function Donation() {
           <div className="flex align-baseline w-full">
             <div className="flex flex-col mx-auto mb-5">
               <a className="text-xl font-semibold text-center">
-                Here's what the {data.companyName} United Way campaign{" "}
+                {label}{" "}
               </a>
               <a className="text-lg font-semibold text-center">
                 made possible last year

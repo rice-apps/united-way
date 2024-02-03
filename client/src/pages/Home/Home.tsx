@@ -121,6 +121,7 @@ const Home: React.FC = () => {
                       onChange={handleInputChange}
                       placeholder="Enter your company name"
                       className="input input-bordered w-full max-w-xs mt-3"
+                      required
                     />
                   </div>
                 )}
