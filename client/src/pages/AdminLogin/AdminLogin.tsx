@@ -60,12 +60,12 @@ function AdminLogin() {
               const [showPassword, setShowPassword] = useState(false);
              
               return (
-                <div className="flex flex-row justify-center align-middle w-full">
-                  <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg mx-auto p-5">
-                    <p className=" normal-case text-xl text-center">
+                <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% flex flex-row justify-center align-middle h-screen w-full">
+                  <div className="mx-auto w-6/12 max-w-lg">
+                    <p className="normal-case text-3xl mt-16 text-center p-5">
                       Admin Sign in
                     </p>
-                    <div className="form-control w-full max-w-xl">
+                    <div className=" form-control w-full ">
                       <form onSubmit={handleFormSubmit}>
                         <div className="flex flex-col justify-center align-middle">
                           <div className="mt-6">
@@ -79,9 +79,9 @@ function AdminLogin() {
                               value={formData.pinNumber}
                               onChange={handleInputChange}
                               placeholder="Enter PIN number"
-                              className="input input-bordered w-full max-w-xs mt-3"
-                              //required
+                              className="input input-bordered bg-white w-full mt-3 text-black rounded-3xl"
                             />
+                            <br />
                             <br />
                             <label form ="check">Show Pin Number</label>
                             <input
@@ -93,7 +93,7 @@ function AdminLogin() {
                             />
                           </div>
                           
-                          <button className="btn btn-outline mt-6">Sign in</button>
+                          <button className="btn btn-outline self-center w-6/12 m-5 text-black bg-yellow hover:bg-orange rounded-3xl">Sign in</button>
                         </div>
                       </form>
             
