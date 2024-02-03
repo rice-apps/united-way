@@ -97,13 +97,16 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-row justify-center items-center w-full">
     <div className="mx-auto w-full max-w-xl">
-        <p className="normal-case text-3xl text-center m-7">
+        <p className="normal-case text-3xl text-center m-7 font-bold">
             Calculate Your Impact
         </p>
-        <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl">
+        <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl relative">
+        <button onClick={toggleMode} className="btn btn-outline m-5 w-2/12 absolute top-0 right-0 ">
+          {mode === 'full' ? 'Individual' : 'Company'}
+        </button>
             <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
             
-                {mode && <div className="mt-6 w-full flex flex-col items-center">
+                {mode == "full" && <div className="mt-6 w-full flex flex-col items-center">
                     <label htmlFor="companyname" style={{ marginRight: '190px' }}>Company Name</label>
                     <input
                         type="text"
