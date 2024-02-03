@@ -9,6 +9,9 @@ export default {
         'blue': '#015191',
         'purple': '#804B67',
         'red': '#EF4643',
+        'yellow': '#FFB351',
+        'orange':'#FF7C45'
+        
       }
     },
   },

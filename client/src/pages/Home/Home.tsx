@@ -91,14 +91,14 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-row justify-center items-center w-full">
     <div className="mx-auto w-full max-w-xl">
-        <p className="normal-case text-xl text-center">
+        <p className="normal-case text-3xl text-center m-7">
             Calculate Your Impact
         </p>
-        <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg form-control w-full max-w-xl">
+        <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl">
             <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
             
                 <div className="mt-6 w-full flex flex-col items-center">
-                    <label htmlFor="companyname" className="mb-1 rounded-lg" style={{ marginRight: '190px' }}>Company Name:</label>
+                    <label htmlFor="companyname" style={{ marginRight: '190px' }}>Company Name</label>
                     <div></div>
                     <input
                         type="text"
@@ -106,13 +106,13 @@ const Home: React.FC = () => {
                         name="companyName"
                         value={formData.companyName}
                         onChange={handleInputChange}
-                        placeholder="Enter your company name"
-                        className="input input-bordered w-full max-w-xs mt-3 rounded-full border-white"
+                        placeholder="Enter company name"
+                        className="input input-bordered w-full bg-white bg-opacity-70 max-w-xs mt-3 rounded-full border-black text-black"
                         // required
                     />
                 </div>
                 <div className="mt-6 w-full flex flex-col items-center"> {/* Updated this line */}
-                    <label htmlFor="donationamt" style={{ marginRight: '180px' }}>Donation Amount:</label>
+                    <label htmlFor="donationamt" style={{ marginRight: '180px' }}>Donation Amount</label>
                     <div></div>
                     <input
                         type="text"
@@ -121,12 +121,12 @@ const Home: React.FC = () => {
                         value={formData.donationAmt}
                         onKeyPress={handleKeyPress}
                         onChange={handleInputChange}
-                        placeholder="Enter a number"
-                        className="input input-bordered w-full max-w-xs mt-3 rounded-full border-white"
+                        placeholder="Enter amount"
+                        className="input input-bordered w-full bg-white bg-opacity-70 max-w-xs mt-3 rounded-full border-black text-black"
                         required
                     />
                 </div>
-                <button className="btn btn-outline mt-6">Calculate Impact</button>
+                <button className="btn btn-outline rounded-full mt-6 bg-yellow text-black hover:bg-orange">Calculate</button>
             </form>
             <label className="label"></label>
         </div>
