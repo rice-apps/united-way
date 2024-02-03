@@ -103,9 +103,8 @@ const Home: React.FC = () => {
         <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl">
             <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
             
-                <div className="mt-6 w-full flex flex-col items-center">
+                {mode && <div className="mt-6 w-full flex flex-col items-center">
                     <label htmlFor="companyname" style={{ marginRight: '190px' }}>Company Name</label>
-                    <div></div>
                     <input
                         type="text"
                         id="companyname"
@@ -117,6 +116,7 @@ const Home: React.FC = () => {
                         // required
                     />
                 </div>
+                }   
                 <div className="mt-6 w-full flex flex-col items-center"> {/* Updated this line */}
                     <label htmlFor="donationamt" style={{ marginRight: '180px' }}>Donation Amount</label>
                     <div></div>
