@@ -60,7 +60,7 @@ function AdminLogin() {
               const [showPassword, setShowPassword] = useState(false);
              
               return (
-                <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% flex flex-row justify-center align-middle h-screen w-full">
+                <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% flex flex-row justify-center align-middle h-screen w-full font-bold">
                   <div className="mx-auto w-6/12 max-w-lg">
                     <p className="normal-case text-3xl mt-16 text-center p-5">
                       Admin Sign in
@@ -68,7 +68,7 @@ function AdminLogin() {
                     <div className=" form-control w-full ">
                       <form onSubmit={handleFormSubmit}>
                         <div className="flex flex-col justify-center align-middle">
-                          <div className="mt-6">
+                          <div className="mt-6 mb-4">
                             <label htmlFor="PIN Number">PIN Number</label>
                             <div className = "relative">
                               <input
@@ -80,7 +80,7 @@ function AdminLogin() {
                                 value={formData.pinNumber}
                                 onChange={handleInputChange}
                                 placeholder="Enter PIN number"
-                                className="input mb-2 input-bordered bg-white w-full mt-3 text-black rounded-3xl"
+                                className="input mb-2 input-bordered bg-white w-full mt-3 text-black rounded-3xl font-normal"
                               />   
                               <button
                                 className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
