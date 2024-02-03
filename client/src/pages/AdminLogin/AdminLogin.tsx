@@ -60,16 +60,16 @@ function AdminLogin() {
               const [showPassword, setShowPassword] = useState(false);
              
               return (
-                <div className="flex flex-row justify-center align-middle w-full">
+                <div className="flex flex-row justify-center align-middle w-full" >
                   <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-lg mx-auto p-5">
-                    <p className=" normal-case text-xl text-center">
+                    <p className=" normal-case text-xl text-center" style={{ color: 'white' }} >
                       Admin Sign in
                     </p>
                     <div className="form-control w-full max-w-xl">
                       <form onSubmit={handleFormSubmit}>
                         <div className="flex flex-col justify-center align-middle">
                           <div className="mt-6">
-                            <label htmlFor="PIN Number">PIN Number</label>
+                            <label htmlFor="PIN Number" style={{ color: 'white' }}>PIN Number</label>
                             <input
                               type={
                                 showPassword ? "text" : "password"
@@ -83,7 +83,7 @@ function AdminLogin() {
                               //required
                             />
                             <br />
-                            <label form ="check">Show Pin Number</label>
+                            <label form ="check" style={{ color: 'white' }}>Show Pin Number</label>
                             <input
                               id="check"
                               type="checkbox"
@@ -93,7 +93,7 @@ function AdminLogin() {
                             />
                           </div>
                           
-                          <button className="btn btn-outline mt-6">Sign in</button>
+                          <button  style={{ color: 'white' }} className="btn btn-outline mt-6">Sign in</button>
                         </div>
                       </form>
             
