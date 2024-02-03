@@ -88,6 +88,12 @@ const Home: React.FC = () => {
     totalPeople: 0.4,
   };
 
+  const [mode, setMode] = useState('company'); 
+
+  const toggleMode = () => {
+    setMode(mode === 'full' ? 'donationOnly' : 'full');
+  };
+
   return (
     <div className="flex flex-row justify-center items-center w-full">
     <div className="mx-auto w-full max-w-xl">

@@ -12,7 +12,19 @@ export default {
         'yellow': '#FFB351',
         'orange':'#FF7C45'
         
-      }
+      },
+      scale: {
+        '80': '0.8',
+        '70': '0.7',
+        '60': '0.6',
+      },
+      brightness: {
+        '25': '.25',
+      },
+      'translate': {
+        '30': '7.5rem',
+      },
+  
     },
   },
   daisyui: {
