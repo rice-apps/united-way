@@ -7,15 +7,16 @@ function NavBarComp() {
     <>
       <div className="navbar bg-base-100 mt-2">
         <div className="flex-1">
-          <Link className="btn btn-ghost normal-case text-xl" href="/">
-            United Way Impact Calculator
-          </Link>{" "}
-        </div>
-
-        <div className="navbar-end">
           <div className="w-1/4">
             <Logo />
           </div>
+        </div>
+
+        <div className="navbar-end">
+            <Link className="btn btn-ghost normal-case text-xl" href="/">
+                United Way Impact Calculator
+            </Link>{" "}
+            
         </div>
       </div>
     </>

@@ -39,6 +39,12 @@ const Home: React.FC = () => {
   const toggleMode = () => {
     setMode(mode === "full" ? "donationOnly" : "full")
   }
+  const fullMode = () => {
+    setMode("full");
+  }
+  const donateMode = () => {
+    setMode("donationOnly");
+  }
 
   return (
     <div className="flex flex-row justify-center items-center w-full">
@@ -47,9 +53,14 @@ const Home: React.FC = () => {
           Calculate Your Impact
         </p>
         <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl relative">
-          <button onClick={toggleMode} className="btn btn-outline m-5 w-2/12 absolute top-0 right-0">
-            {mode === "full" ? "Individual" : "Company"}
-          </button>
+        <div className={"btn-group m-1 w-7/24 absolute top-1 right-1 bg-gray-300"} style={{ padding: '0.1rem 0.5rem', fontSize: '0.6rem', borderRadius: '9999px'}}>
+            <button onClick={fullMode} className={`btn btn-outline rounded-full ${mode === "full" ? "bg-gray-200" : ""}`} style={{ padding: '0.1rem 0.3rem', fontSize: '0.6rem', borderRadius: '5000px', border: 'none'}}>
+                Company
+            </button>
+            <button onClick={donateMode} className={`btn btn-outline rounded-full ${mode === "donationOnly" ? "bg-gray-200" : ""} `} style={{ padding: '0.1rem 0.3rem', fontSize: '0.6rem', borderRadius: '5000px', border: 'none'}}>
+                Individual
+            </button>
+        </div>
           <form>
             <div className="flex flex-col justify-center align-middle">
               {mode === "full" && (
