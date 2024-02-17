@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.4.4",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "next": "14.1.0",
