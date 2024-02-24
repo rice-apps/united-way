@@ -4,13 +4,10 @@ import React, { useState } from "react"
 
 interface FormData {
   pinNumber: string
-  CSV : File
 }
-
 function AdminLogin() {
   const [formData, setFormData] = useState<FormData>({
     pinNumber: "",
-    CSV :  new File([""], "empty.csv") 
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +32,8 @@ function AdminLogin() {
         console.log(r);
     })
 }
+  
+
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
@@ -54,6 +53,9 @@ function AdminLogin() {
         const resJSON = await res.json()
         console.log(resJSON)
         alert(resJSON.response)
+        if(resJSON.response === "Correct Pin" && fileData != ){
+          uploadFile(fileData)
+        }
       } catch (error) {
         console.error("Error verifying PIN:", error)
       }
@@ -63,7 +65,7 @@ function AdminLogin() {
 
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
-
+  const [fileData, setFileData] = useState<File>();
   return (
     <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% flex flex-row justify-center align-middle h-screen w-full font-bold">
       <div className="mx-auto w-6/12 max-w-lg">
@@ -132,7 +134,7 @@ function AdminLogin() {
                 type = "file"
                 id="CSV"
                 name="CSV"
-                value={formData.CSV}
+                onChange={ (e) => setFileData(e.target.files?.[0])}
               />
               <button className="btn btn-outline self-center w-6/12 m-5 text-black bg-yellow hover:bg-orange rounded-3xl">
                 Sign in
