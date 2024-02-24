@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState } from "react"
 
@@ -18,7 +18,6 @@ function AdminLogin() {
       ...formData,
       [name]: value,
     })
-
   }
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {

@@ -11,7 +11,7 @@ export async function GET(request: Request) {
       basicNeeds: 0.1,
       totalPeople: 0.4,
     },
-    { status: 200 }
+    { status: 200 },
   )
 }
 

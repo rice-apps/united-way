@@ -8,7 +8,7 @@ type DonationInputs = {
   dollarsRaised: number
 }
 
-function Donation({companyName, dollarsRaised}: DonationInputs) {
+function Donation({ companyName, dollarsRaised }: DonationInputs) {
   // Import the proportions from the route.ts => how to
   async function GetData() {
     let data = await fetch(`/api/data/`)
