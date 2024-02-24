@@ -18,15 +18,11 @@ function AdminLogin() {
       ...formData,
       [name]: value,
     })
-    // const newText = event.target.value;
-    // setInputText(newText);
 
-    // Call the function that returns the output
   }
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    // PLACEHOLDER - alert saying "Submitted!"
     const verifyPIN = async (pin: string) => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/verify/`, {
