@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
-import Logo from "./Logo"
+import React from "react";
+import Link from "next/link";
+import Logo from "./Logo";
 
 function NavBarComp() {
   return (
@@ -19,7 +19,7 @@ function NavBarComp() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default NavBarComp
+export default NavBarComp;

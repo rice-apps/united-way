@@ -139,5 +139,5 @@ export default function Logo() {
         transform="translate(952,362)"
       />
     </svg>
-  )
+  );
 }

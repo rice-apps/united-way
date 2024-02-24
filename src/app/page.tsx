@@ -1,44 +1,44 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import Link from "next/link"
+import React, { useState } from "react";
+import Link from "next/link";
 
 interface FormData {
-  companyName: string
-  donationAmt: string
+  companyName: string;
+  donationAmt: string;
 }
 
 const Home: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     companyName: "",
     donationAmt: "",
-  })
+  });
   //const [companyName, setCompanyName] = useState('');
 
   // prevents non-numbers to be entered
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     // Allow numeric digits (0-9) and some special keys (e.g., Backspace, Arrow keys, etc.)
-    const allowedKeys = /[0-9\b]/
+    const allowedKeys = /[0-9\b]/;
 
     if (!allowedKeys.test(event.key)) {
-      event.preventDefault()
+      event.preventDefault();
     }
-  }
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target
-    console.log(name, value)
+    const { name, value } = event.target;
+    console.log(name, value);
     setFormData({
       ...formData,
       [name]: value,
-    })
-  }
+    });
+  };
 
-  const [mode, setMode] = useState("company")
+  const [mode, setMode] = useState("company");
 
   const toggleMode = () => {
-    setMode(mode === "full" ? "donationOnly" : "full")
-  }
+    setMode(mode === "full" ? "donationOnly" : "full");
+  };
 
   return (
     <div className="flex flex-row justify-center items-center w-full">
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

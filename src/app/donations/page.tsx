@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { jsPDF } from "jspdf"
-import { useSearchParams } from "next/navigation"
-import html2canvas from "html2canvas"
-import Image from "next/image"
-import ImpactCarousel from "./ImpactCarousel"
-import React, { useState } from "react"
+import { jsPDF } from "jspdf";
+import { useSearchParams } from "next/navigation";
+import html2canvas from "html2canvas";
+import Image from "next/image";
+import ImpactCarousel from "./ImpactCarousel";
+import React, { useState } from "react";
 
 function Donation() {
-  const searchParams = useSearchParams()
-  const companyName = searchParams.get("name")
-  const amount = searchParams.get("amount")
+  const searchParams = useSearchParams();
+  const companyName = searchParams.get("name");
+  const amount = searchParams.get("amount");
 
   // make sure dollarRaised is a number
   if (amount === null) {
-    throw new Error("dollarsRaised is null")
+    throw new Error("dollarsRaised is null");
   }
-  const dollarsRaised = parseFloat(amount)
+  const dollarsRaised = parseFloat(amount);
 
   // dummy proportions
   const proportionsMap: { [key: string]: number } = {
@@ -26,52 +26,52 @@ function Donation() {
     escape: 0.1,
     basicNeeds: 0.1,
     totalPeople: 0.4,
-  }
+  };
 
-  const downloadRef = React.createRef<HTMLDivElement>()
+  const downloadRef = React.createRef<HTMLDivElement>();
 
   const handleDownloadPdf = async () => {
-    setSharebool(true)
-    const element = downloadRef.current
-    const canvas = await html2canvas(element as HTMLElement)
-    const data = canvas.toDataURL("image/png")
+    setSharebool(true);
+    const element = downloadRef.current;
+    const canvas = await html2canvas(element as HTMLElement);
+    const data = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF()
-    const imgProperties = pdf.getImageProperties(data)
-    const pdfWidth = pdf.internal.pageSize.getWidth()
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight)
-    pdf.save("donation.pdf")
-    setSharebool(false)
-  }
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("donation.pdf");
+    setSharebool(false);
+  };
 
   const handleDownloadImage = async () => {
-    const element = downloadRef.current
-    console.log(element)
-    const canvas = await html2canvas(element as HTMLElement)
+    const element = downloadRef.current;
+    console.log(element);
+    const canvas = await html2canvas(element as HTMLElement);
 
-    const data = canvas.toDataURL("image/jpg")
-    const link = document.createElement("a")
+    const data = canvas.toDataURL("image/jpg");
+    const link = document.createElement("a");
 
     if (typeof link.download === "string") {
-      link.href = data
-      link.download = "image.jpg"
+      link.href = data;
+      link.download = "image.jpg";
 
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } else {
-      window.open(data)
+      window.open(data);
     }
-    setSharebool(false)
-  }
+    setSharebool(false);
+  };
 
-  const [shareBool, setSharebool] = useState(false)
+  const [shareBool, setSharebool] = useState(false);
 
-  var label = "Here's what your donation"
+  var label = "Here's what your donation";
   if (companyName) {
-    label = `Here's what the ${companyName} United Way campaign`
+    label = `Here's what the ${companyName} United Way campaign`;
   }
 
   return (
@@ -110,7 +110,7 @@ function Donation() {
         </button>
       </div>
     </>
-  )
+  );
 }
 
-export default Donation
+export default Donation;
