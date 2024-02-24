@@ -9,6 +9,7 @@ interface MyData {
   escape: number
   basicNeeds: number
   totalPeople: number
+  downloadRef: React.RefObject<HTMLDivElement>
 }
 
 function ImpactCarousel({
@@ -19,8 +20,11 @@ function ImpactCarousel({
   escape,
   basicNeeds,
   totalPeople,
+  downloadRef
 }: MyData) {
   const carouselRef = useRef<HTMLDivElement>(null)
+  var array = [] as JSX.IntrinsicElements.div[];
+
 
   // get the carousel element
   let carousel: HTMLDivElement | null
@@ -187,16 +191,19 @@ function ImpactCarousel({
         className="grow grid justify-center items-center h-full"
         ref={carouselRef}
       >
-        {carouselData.map((data, index) => (
-          <div className="row-start-1 col-start-1 transition-all" key={index}>
+        {carouselData.map((data, index) => {
+          array.push(<div className="row-start-1 col-start-1 transition-all" key={index}>
             <ImpactCards
               imgURL={data.imgURL}
               numData={data.numData}
               unitText={data.unitText}
               descText={data.descText}
+              downloadRef={downloadRef}
             />
-          </div>
-        ))}
+          </div>)
+          return array.at(array.length-1)
+
+        })}
       </div>
 
       {/* click right button */}

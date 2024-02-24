@@ -28,11 +28,11 @@ function Donation() {
     totalPeople: 0.4,
   }
 
-  const downloadRef = React.createRef<HTMLDivElement>()
+  const carouselRef = React.createRef<HTMLDivElement>()
 
   const handleDownloadPdf = async () => {
     setSharebool(true)
-    const element = downloadRef.current
+    const element = carouselRef.current
     const canvas = await html2canvas(element as HTMLElement)
     const data = canvas.toDataURL("image/png")
 
@@ -47,7 +47,7 @@ function Donation() {
   }
 
   const handleDownloadImage = async () => {
-    const element = downloadRef.current
+    const element = carouselRef.current
     console.log(element)
     const canvas = await html2canvas(element as HTMLElement)
 
@@ -90,7 +90,7 @@ function Donation() {
             </span>
         </a>
       </div>
-      <div className="mt-2" ref={downloadRef}>
+      <div className="mt-2">
         <ImpactCarousel
           dollarsRaised={dollarsRaised}
           stability={proportionsMap.stability}
@@ -99,6 +99,7 @@ function Donation() {
           escape={proportionsMap.escape}
           basicNeeds={proportionsMap.basicNeeds}
           totalPeople={proportionsMap.totalPeople}
+          downloadRef={carouselRef}
         />
       </div>
 

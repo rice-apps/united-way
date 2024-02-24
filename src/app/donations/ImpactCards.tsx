@@ -5,12 +5,13 @@ type CardInputs = {
   numData: number
   unitText: string
   descText: string
+  downloadRef: React.RefObject<HTMLDivElement>
 }
 
-function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
+function ImpactCard({ imgURL, numData, unitText, descText, downloadRef }: CardInputs) {
   return (
     <>
-      <div className="card shadow-md w-96 h-96 bg-base-100">
+      <div className="card shadow-md w-96 h-96 bg-base-100" ref={downloadRef} >
         <figure className="px-6 pt-6 m-0">
           <Image
             src={imgURL}
