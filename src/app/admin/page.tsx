@@ -25,7 +25,7 @@ function AdminLogin() {
     e.preventDefault()
     const verifyPIN = async (pin: string) => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/verify/`, {
+        const res = await fetch(`/api/verify/`, {
           method: "Post",
           headers: {
             "Content-Type": "application/json",
