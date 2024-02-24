@@ -1,45 +1,45 @@
-import React from "react";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
-import Image from "next/image";
+import React from "react"
+import html2canvas from "html2canvas"
+import { jsPDF } from "jspdf"
+import Image from "next/image"
 
 function PDFSave() {
-  const downloadRef = React.createRef<HTMLDivElement>();
+  const downloadRef = React.createRef<HTMLDivElement>()
 
   const handleDownloadPdf = async () => {
-    const element = downloadRef.current;
-    const canvas = await html2canvas(element as HTMLElement);
-    const data = canvas.toDataURL("image/png");
+    const element = downloadRef.current
+    const canvas = await html2canvas(element as HTMLElement)
+    const data = canvas.toDataURL("image/png")
 
-    const pdf = new jsPDF();
-    const imgProperties = pdf.getImageProperties(data);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+    const pdf = new jsPDF()
+    const imgProperties = pdf.getImageProperties(data)
+    const pdfWidth = pdf.internal.pageSize.getWidth()
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width
 
-    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("donation.pdf");
-  };
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight)
+    pdf.save("donation.pdf")
+  }
 
   const handleDownloadImage = async () => {
-    const element = downloadRef.current;
-    const canvas = await html2canvas(element as HTMLElement);
+    const element = downloadRef.current
+    const canvas = await html2canvas(element as HTMLElement)
 
-    const data = canvas.toDataURL("image/jpg");
-    const link = document.createElement("a");
+    const data = canvas.toDataURL("image/jpg")
+    const link = document.createElement("a")
 
     if (typeof link.download === "string") {
-      link.href = data;
-      link.download = "image.jpg";
+      link.href = data
+      link.download = "image.jpg"
 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     } else {
-      window.open(data);
+      window.open(data)
     }
-  };
+  }
 
-  const style = { marginTop: 30, marginBottom: 30 };
+  const style = { marginTop: 30, marginBottom: 30 }
 
   return (
     <>
@@ -58,7 +58,7 @@ function PDFSave() {
         <div>This text will be slightly cut off for some reason :/</div>
       </div>
     </>
-  );
+  )
 }
 
-export default PDFSave;
+export default PDFSave

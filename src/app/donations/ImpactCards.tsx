@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image from "next/image"
 
 type CardInputs = {
-  imgURL: string;
-  numData: number;
-  unitText: string;
-  descText: string;
-};
+  imgURL: string
+  numData: number
+  unitText: string
+  descText: string
+}
 
 function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
   return (
@@ -28,6 +28,6 @@ function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
         </div>
       </div>
     </>
-  );
+  )
 }
-export default ImpactCard;
+export default ImpactCard

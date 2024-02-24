@@ -1,14 +1,14 @@
-import { useRef, useEffect } from "react";
-import ImpactCards from "./ImpactCards";
+import { useRef, useEffect } from "react"
+import ImpactCards from "./ImpactCards"
 
 interface MyData {
-  dollarsRaised: number;
-  stability: number;
-  development: number;
-  healthcare: number;
-  escape: number;
-  basicNeeds: number;
-  totalPeople: number;
+  dollarsRaised: number
+  stability: number
+  development: number
+  healthcare: number
+  escape: number
+  basicNeeds: number
+  totalPeople: number
 }
 
 function ImpactCarousel({
@@ -20,22 +20,22 @@ function ImpactCarousel({
   basicNeeds,
   totalPeople,
 }: MyData) {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   // get the carousel element
-  let carousel: HTMLDivElement | null;
+  let carousel: HTMLDivElement | null
 
   // put all of the divs into an array
-  let carouselElements: HTMLCollectionOf<HTMLDivElement> | undefined;
+  let carouselElements: HTMLCollectionOf<HTMLDivElement> | undefined
 
   useEffect(() => {
     if (carouselRef.current) {
       carouselElements = carouselRef.current
-        .children as HTMLCollectionOf<HTMLDivElement>;
+        .children as HTMLCollectionOf<HTMLDivElement>
     }
 
-    updateCarousel(0);
-  }, []);
+    updateCarousel(0)
+  }, [])
 
   const carouselData = [
     {
@@ -68,27 +68,27 @@ function ImpactCarousel({
       unitText: "Total People",
       descText: "Number of people whose lives you've improved via our services",
     },
-  ];
+  ]
 
-  let activeIndex = 0;
+  let activeIndex = 0
 
   /* updateCarousel function, which is called when the right/left buttons are clicked */
   /* switches the way the 5 impact cards are displayed */
   function updateCarousel(newIndex: number): void {
-    if (!carouselElements) return;
+    if (!carouselElements) return
 
     // check if the index is out of bounds
-    if (newIndex < 0) newIndex = carouselElements.length - 1;
-    else if (newIndex >= carouselElements.length) newIndex = 0;
+    if (newIndex < 0) newIndex = carouselElements.length - 1
+    else if (newIndex >= carouselElements.length) newIndex = 0
 
     // update the active index
-    const previousIndex = activeIndex;
-    activeIndex = newIndex;
+    const previousIndex = activeIndex
+    activeIndex = newIndex
 
     // update the carousel elements
     for (let i = 0; i < carouselElements.length; i++) {
       // get the current element
-      const currentElement = carouselElements[i];
+      const currentElement = carouselElements[i]
 
       /* change the order of cards on top of each other */
       if (
@@ -99,11 +99,9 @@ function ImpactCarousel({
         currentElement.classList.replace(
           `z-${50 - Math.abs(i - previousIndex) * 10}`,
           `z-${50 - Math.abs(i - activeIndex) * 10}`,
-        );
+        )
       } else {
-        currentElement.classList.add(
-          `z-${50 - Math.abs(i - activeIndex) * 10}`,
-        );
+        currentElement.classList.add(`z-${50 - Math.abs(i - activeIndex) * 10}`)
       }
 
       /* change the brightness of cards not in the front */
@@ -115,11 +113,11 @@ function ImpactCarousel({
         currentElement.classList.replace(
           `brightness-${100 - Math.abs(i - previousIndex) * 25}`,
           `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
-        );
+        )
       } else {
         currentElement.classList.add(
           `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
-        );
+        )
       }
 
       /* change the location of cards/move them over so they are stacked on top of each other */
@@ -137,13 +135,13 @@ function ImpactCarousel({
           `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
             Math.abs(i - activeIndex) * 10
           }`,
-        );
+        )
       } else {
         currentElement.classList.add(
           `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
             Math.abs(i - activeIndex) * 10
           }`,
-        );
+        )
       }
 
       /* change the scale/size of cards */
@@ -155,11 +153,11 @@ function ImpactCarousel({
         currentElement.classList.replace(
           `scale-${100 - Math.abs(i - previousIndex) * 10}`,
           `scale-${100 - Math.abs(i - activeIndex) * 10}`,
-        );
+        )
       } else {
         currentElement.classList.add(
           `scale-${100 - Math.abs(i - activeIndex) * 10}`,
-        );
+        )
       }
 
       // translate-x-40 translate-x-30 translate-x-20 translate-x-10 translate-x-0 -translate-x-10 -translate-x-20 -translate-x-30 -translate-x-40 z-50 z-40 z-30 z-20 z-10 brightness-100 brightness-75 brightness-50 brightness-25 brightness-0 scale-100 scale-90 scale-80 scale-70 scale-60
@@ -218,8 +216,8 @@ function ImpactCarousel({
         </svg>
       </button>
     </div>
-  );
+  )
 }
 
 /* export the carousel object */
-export default ImpactCarousel;
+export default ImpactCarousel
