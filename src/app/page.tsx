@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
-import Link from "next/link"
+import React, { useState, useEffect } from "react"
 
 interface FormData {
   companyName: string
@@ -13,6 +12,7 @@ const Home: React.FC = () => {
     companyName: "",
     donationAmt: "",
   })
+  const [warning, setWarning] = useState<string>("")
   //const [companyName, setCompanyName] = useState('');
 
   // prevents non-numbers to be entered
@@ -34,11 +34,33 @@ const Home: React.FC = () => {
     })
   }
 
+  const handleCalculate = () => {
+    if (!formData.donationAmt) {
+      setWarning("Donation amount is required!")
+    } else if (Number(formData.donationAmt) < 1) {
+      setWarning("Donation amount must be greater than 0!")
+    } else if (mode === "full" && !formData.companyName) {
+      setWarning("Company name is required!")
+    } else {
+      window.location.href = `/donations?name=${formData.companyName}&amount=${formData.donationAmt}`
+    }
+  }
+
   const [mode, setMode] = useState("company")
 
   const toggleMode = () => {
     setMode(mode === "full" ? "donationOnly" : "full")
   }
+
+  // Trigger a warning alert if the user misses to fill the required fields
+  useEffect(() => {
+    if (warning) {
+      alert(warning)
+      setTimeout(() => {
+        setWarning("")
+      }, 1000)
+    }
+  }, [warning])
 
   return (
     <div className="flex flex-row justify-center items-center w-full">
@@ -92,21 +114,14 @@ const Home: React.FC = () => {
                   className="input input-bordered w-full bg-white bg-opacity-70 max-w-xs mt-3 rounded-full border-black text-black"
                   required
                 />
-              </div>
-              <Link
-                className="flex flex-row justify-center items-center w-full"
-                href={{
-                  pathname: "/donations",
-                  query: {
-                    name: formData.companyName,
-                    amount: formData.donationAmt,
-                  },
-                }}
-              >
-                <button className="btn btn-outline rounded-full mt-6 bg-yellow text-black hover:bg-orange">
+                <button
+                  type="button"
+                  onClick={handleCalculate}
+                  className="btn btn-outline rounded-full mt-6 bg-yellow text-black hover:bg-orange"
+                >
                   Calculate
                 </button>
-              </Link>
+              </div>
             </div>
           </form>
           <label className="label"></label>
