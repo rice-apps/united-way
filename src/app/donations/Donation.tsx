@@ -11,7 +11,7 @@ type DonationInputs = {
 function Donation({companyName, dollarsRaised}: DonationInputs) {
   // Import the proportions from the route.ts => how to
   async function GetData() {
-    let data = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/data/`)
+    let data = await fetch(`/api/data/`)
     console.log(data)
     let data_json = await data.json()
     console.log(data_json)
