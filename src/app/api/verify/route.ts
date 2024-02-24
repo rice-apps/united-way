@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server'
 export async function POST(req: Request) {
 
     // how to get the user pin ? 
-    const { userPin } = await req.json();
-
+    const userPin  = (await req.json()).pin;
     // get the password from the env file
     const actualPin = process.env.PRIVATE_KEY;
 

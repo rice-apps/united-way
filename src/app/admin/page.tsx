@@ -42,7 +42,7 @@ function AdminLogin() {
         console.log(res)
         const resJSON = await res.json()
         console.log(resJSON)
-        alert(resJSON["message"])
+        alert(resJSON.response)
       } catch (error) {
         console.error("Error verifying PIN:", error)
       }
