@@ -4,11 +4,13 @@ import React, { useState } from "react"
 
 interface FormData {
   pinNumber: string
+  CSV : File
 }
 
 function AdminLogin() {
   const [formData, setFormData] = useState<FormData>({
     pinNumber: "",
+    CSV :  new File([""], "empty.csv") 
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,12 +22,25 @@ function AdminLogin() {
     })
 
   }
+  const uploadFile = (file : File) => {
+    let url = "http://localhost:3000/api/CSV";
+
+    let formData = new FormData();
+    formData.set("testFile", file)
+
+    fetch(url, {
+        method: "POST",
+        body: formData,
+    }).then(r => {
+        console.log(r);
+    })
+}
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     const verifyPIN = async (pin: string) => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/verify/`, {
+        const res = await fetch(`/api/verify/`, {
           method: "Post",
           headers: {
             "Content-Type": "application/json",
@@ -113,7 +128,12 @@ function AdminLogin() {
                   </button>
                 </div>
               </div>
-
+              <input
+                type = "file"
+                id="CSV"
+                name="CSV"
+                value={formData.CSV}
+              />
               <button className="btn btn-outline self-center w-6/12 m-5 text-black bg-yellow hover:bg-orange rounded-3xl">
                 Sign in
               </button>
