@@ -30,7 +30,8 @@ function ImpactCarousel({
 
   useEffect(() => {
     if (carouselRef.current) {
-      carouselElements = carouselRef.current.children as HTMLCollectionOf<HTMLDivElement>
+      carouselElements = carouselRef.current
+        .children as HTMLCollectionOf<HTMLDivElement>
     }
 
     updateCarousel(0)
@@ -92,12 +93,12 @@ function ImpactCarousel({
       /* change the order of cards on top of each other */
       if (
         currentElement.classList.contains(
-          `z-${50 - Math.abs(i - previousIndex) * 10}`
+          `z-${50 - Math.abs(i - previousIndex) * 10}`,
         )
       ) {
         currentElement.classList.replace(
           `z-${50 - Math.abs(i - previousIndex) * 10}`,
-          `z-${50 - Math.abs(i - activeIndex) * 10}`
+          `z-${50 - Math.abs(i - activeIndex) * 10}`,
         )
       } else {
         currentElement.classList.add(`z-${50 - Math.abs(i - activeIndex) * 10}`)
@@ -106,16 +107,16 @@ function ImpactCarousel({
       /* change the brightness of cards not in the front */
       if (
         currentElement.classList.contains(
-          `brightness-${100 - Math.abs(i - previousIndex) * 25}`
+          `brightness-${100 - Math.abs(i - previousIndex) * 25}`,
         )
       ) {
         currentElement.classList.replace(
           `brightness-${100 - Math.abs(i - previousIndex) * 25}`,
-          `brightness-${100 - Math.abs(i - activeIndex) * 25}`
+          `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
         )
       } else {
         currentElement.classList.add(
-          `brightness-${100 - Math.abs(i - activeIndex) * 25}`
+          `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
         )
       }
 
@@ -124,7 +125,7 @@ function ImpactCarousel({
         currentElement.classList.contains(
           `${i - previousIndex > 0 ? "translate-x" : "-translate-x"}-${
             Math.abs(i - previousIndex) * 10
-          }`
+          }`,
         )
       ) {
         currentElement.classList.replace(
@@ -133,29 +134,29 @@ function ImpactCarousel({
           }`,
           `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
             Math.abs(i - activeIndex) * 10
-          }`
+          }`,
         )
       } else {
         currentElement.classList.add(
           `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
             Math.abs(i - activeIndex) * 10
-          }`
+          }`,
         )
       }
 
       /* change the scale/size of cards */
       if (
         currentElement.classList.contains(
-          `scale-${100 - Math.abs(i - previousIndex) * 10}`
+          `scale-${100 - Math.abs(i - previousIndex) * 10}`,
         )
       ) {
         currentElement.classList.replace(
           `scale-${100 - Math.abs(i - previousIndex) * 10}`,
-          `scale-${100 - Math.abs(i - activeIndex) * 10}`
+          `scale-${100 - Math.abs(i - activeIndex) * 10}`,
         )
       } else {
         currentElement.classList.add(
-          `scale-${100 - Math.abs(i - activeIndex) * 10}`
+          `scale-${100 - Math.abs(i - activeIndex) * 10}`,
         )
       }
 
