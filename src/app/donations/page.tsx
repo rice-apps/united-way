@@ -77,17 +77,13 @@ function Donation() {
   return (
     <>
       <div className="flex w-full justify-center flex-col mx-auto mb-5">
-        <a className="text-xl font-semibold text-center">
-          {label}
-        </a>
+        <a className="text-xl font-semibold text-center">{label}</a>
         <a className="text-lg font-semibold text-center">
           made possible last year
-          </a>
-            <a className="text-xl  text-center">
-                Based on campaign results of{" "}
-            <span className="font-bold text-2xl">
-                ${dollarsRaised}
-            </span>
+        </a>
+        <a className="text-xl  text-center">
+          Based on campaign results of{" "}
+          <span className="font-bold text-2xl">${dollarsRaised}</span>
         </a>
       </div>
       <div className="mt-2" ref={downloadRef}>

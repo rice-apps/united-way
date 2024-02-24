@@ -47,14 +47,22 @@ const Home: React.FC = () => {
           Calculate Your Impact
         </p>
         <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl relative">
-          <button onClick={toggleMode} className="btn btn-outline m-5 w-2/12 absolute top-0 right-0">
+          <button
+            onClick={toggleMode}
+            className="btn btn-outline m-5 w-2/12 absolute top-0 right-0"
+          >
             {mode === "full" ? "Individual" : "Company"}
           </button>
           <form>
             <div className="flex flex-col justify-center align-middle">
               {mode === "full" && (
                 <div className="mt-6 w-full flex flex-col items-center">
-                  <label htmlFor="Company Name" style={{ marginRight: '190px' }}>Company Name</label>
+                  <label
+                    htmlFor="Company Name"
+                    style={{ marginRight: "190px" }}
+                  >
+                    Company Name
+                  </label>
                   <input
                     type="text"
                     id="companyname"
@@ -67,7 +75,12 @@ const Home: React.FC = () => {
                 </div>
               )}
               <div className="mt-6 w-full flex flex-col items-center">
-                <label htmlFor="Donation Amount" style={{ marginRight: '180px' }}>Donation Amount</label>
+                <label
+                  htmlFor="Donation Amount"
+                  style={{ marginRight: "180px" }}
+                >
+                  Donation Amount
+                </label>
                 <input
                   type="text"
                   id="donationamt"
@@ -90,17 +103,16 @@ const Home: React.FC = () => {
                   },
                 }}
               >
-              <button className="btn btn-outline rounded-full mt-6 bg-yellow text-black hover:bg-orange">
-                Calculate
-              </button>
+                <button className="btn btn-outline rounded-full mt-6 bg-yellow text-black hover:bg-orange">
+                  Calculate
+                </button>
               </Link>
             </div>
-            </form>
-           <label className="label"></label>
+          </form>
+          <label className="label"></label>
         </div>
       </div>
     </div>
-        
   )
 }
 
