@@ -6,93 +6,126 @@
 // or
 // $ bun make_namespace.ts
 
+const keys = [
+  "stability",
+  "development",
+  "healthcare",
+  "escape",
+  "basicNeeds",
+  "totalPeople",
+]
+
 const account_id = process.env.ACCOUNT_ID
+
+function getKey(namespace_id: string, key: string) {
+  fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${account_id}/storage/kv/namespaces/${namespace_id}/values/${key}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then(async (response) => {
+      const data = await response.json()
+
+      if (data.success) {
+        console.log(data)
+      } else {
+        console.error("Fetching key failed")
+        console.error(data.errors)
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching key")
+      console.error(error)
+    })
+}
 
 function createKey(namespace_id: string) {
   console.log("Creating key (donations)")
   // now check if the key 'donations' exists in the namespace
   fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${account_id}/storage/kv/namespaces/${namespace_id}/values/donations`,
+    `https://api.cloudflare.com/client/v4/accounts/${account_id}/storage/kv/namespaces/${namespace_id}/keys`,
     {
       method: "GET",
       headers: {
         Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
+        "Content-Type": "application/json",
       },
     }
   )
-    .then(async (response) => {
-      console.log(response)
-      const data = await response.json()
-
+    .then((res) => res.json())
+    .then((data) => {
       if (data.success) {
-        console.log("Key (donations) exists")
+        if (data.result.map((key: any) => key.name).includes("donations")) {
+          console.log(data.result)
+          console.log("Key (donations) exists")
 
-        console.log(
-          `The key (donations) has the following value: ${data.result}`
-        )
-      } else {
-        console.log("Key (donations) does not exist")
-        if (data.errors[0].code !== 10000) {
-          console.error(data.errors)
-        }
+          // get the key
+          getKey(namespace_id, "donations")
+        } else {
+          console.log("Key (donations) does not exist")
+          // create the key
 
-        // create the key
+          // this means we must create a new key with these default values
+          /**
+           * stability: 0.3,
+           * development: 0.5,
+           * healthcare: 0.2,
+           * escape: 0.1,
+           * basicNeeds: 0.1,
+           * totalPeople: 0.4,
+           */
 
-        // this means we must create a new key with these default values
-        /**
-         * stability: 0.3,
-         * development: 0.5,
-         * healthcare: 0.2,
-         * escape: 0.1,
-         * basicNeeds: 0.1,
-         * totalPeople: 0.4,
-         */
+          const formData = new FormData()
 
-        const formData = new FormData()
+          formData.append("metadata", "")
+          formData.append(
+            "value",
+            JSON.stringify({
+              stability: 0.3,
+              development: 0.5,
+              healthcare: 0.2,
+              escape: 0.1,
+              basicNeeds: 0.1,
+              totalPeople: 0.4,
+            })
+          )
 
-        formData.append("metadata", "")
-        formData.append(
-          "value",
-          JSON.stringify({
-            stability: 0.3,
-            development: 0.5,
-            healthcare: 0.2,
-            escape: 0.1,
-            basicNeeds: 0.1,
-            totalPeople: 0.4,
-          })
-        )
-
-        fetch(
-          `https://api.cloudflare.com/client/v4/accounts/${account_id}/storage/kv/namespaces/${namespace_id}/values/donations`,
-          {
-            method: "PUT",
-            headers: {
-              Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
-              "Content-Type": "application/json",
-            },
-            body: formData,
-          }
-        )
-          .then(async (response) => {
-            const data = await response.json()
-
-            if (data.success) {
-              console.log("Key (donations) created")
-              console.log(data)
-            } else {
-              console.error("Creating key (donations) failed")
-              console.error(data.errors)
+          fetch(
+            `https://api.cloudflare.com/client/v4/accounts/${account_id}/storage/kv/namespaces/${namespace_id}/values/donations`,
+            {
+              method: "PUT",
+              headers: {
+                Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
+                "Content-Type": "application/json",
+              },
+              body: formData,
             }
-          })
-          .catch((error) => {
-            console.error("Error creating key (donations)")
-            console.error(error)
-          })
+          )
+            .then(async (response) => {
+              const data = await response.json()
+
+              if (data.success) {
+                console.log("Key (donations) created")
+                console.log(data)
+              } else {
+                console.error("Creating key (donations) failed")
+                console.error(data.errors)
+              }
+            })
+            .catch((error) => {
+              console.error("Error creating key (donations)")
+              console.error(error)
+            })
+        }
       }
     })
     .catch((error) => {
-      console.error("Error fetching key (donations)")
+      console.warn("Error fetching key (donations)")
       console.error(error)
     })
 }
@@ -103,6 +136,7 @@ fetch(
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
+      "Content-Type": "application/json",
     },
   }
 )
