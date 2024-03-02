@@ -2,11 +2,17 @@
 import ImpactCarousel from "./ImpactCarousel"
 import { useEffect, useState } from "react"
 import { Downloads } from "./Downloads"
+import type { ProportionsMap } from "../utils"
 
 type DonationInputs = {
   companyName: string | null
   dollarsRaised: number
 }
+
+function downloadImpact(companyName: string | null, proportionsMap: ProportionsMap) {
+  window.location.href = `/downloadImpact?name=${companyName}&info=${proportionsMap}`
+}
+
 
 function Donation({ companyName, dollarsRaised }: DonationInputs) {
   // Import the proportions from the route.ts => how to
@@ -19,7 +25,7 @@ function Donation({ companyName, dollarsRaised }: DonationInputs) {
   }
 
   // get the proportions
-  const [proportionsMap, setProportionsMap] = useState(null)
+  const [proportionsMap, setProportionsMap] = useState<null | ProportionsMap>(null)
 
   useEffect(() => {
     GetData()
@@ -41,8 +47,18 @@ function Donation({ companyName, dollarsRaised }: DonationInputs) {
         ) : (
           <span>Loading...</span>
         )}
+        {proportionsMap != null ? (
+          // next time - figure out how to pass proportionsMap
+        <button
+        className="btn btn-outline w-1/6 mr-2"
+        onClick={() => downloadImpact(companyName, proportionsMap)}
+      >
+        Download your Impact
+      </button>        ) : (
+          <span></span>
+        )}
+
       </div>
-      <Downloads />
     </>
   )
 }

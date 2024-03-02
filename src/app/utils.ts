@@ -1,0 +1,9 @@
+export type ProportionsMap = {
+dollarsRaised: number
+stability: number
+development: number
+healthcare: number
+escape: number
+basicNeeds: number
+totalPeople: number
+}

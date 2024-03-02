@@ -1,15 +1,6 @@
 import { useRef, useEffect } from "react"
 import ImpactCards from "./ImpactCards"
-
-interface MyData {
-  dollarsRaised: number
-  stability: number
-  development: number
-  healthcare: number
-  escape: number
-  basicNeeds: number
-  totalPeople: number
-}
+import type { ProportionsMap } from '../utils'
 
 function ImpactCarousel({
   dollarsRaised,
@@ -19,7 +10,7 @@ function ImpactCarousel({
   escape,
   basicNeeds,
   totalPeople,
-}: MyData) {
+}: ProportionsMap) {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   // get the carousel element

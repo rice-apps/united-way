@@ -1,5 +1,6 @@
 import Donation from "./Donation"
 
+
 const page = ({
   params,
   searchParams,
@@ -9,11 +10,16 @@ const page = ({
 }) => {
   const companyName = searchParams?.name
   const amount = searchParams?.amount || 0
+  var passName = ""
+  
 
   var label = "Here's what your donation"
   if (companyName) {
     label = `Here's what the ${companyName} United Way campaign`
-  }
+    if (typeof companyName === "string"){
+      passName = companyName
+    }
+  } 
 
   // make sure dollarRaised is a number
   if (amount === null) {
@@ -33,6 +39,9 @@ const page = ({
         </a>
       </div>
       <Donation companyName={companyName} dollarsRaised={dollarsRaised} />
+      
+        
+
     </div>
   )
 }

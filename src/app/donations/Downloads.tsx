@@ -59,9 +59,6 @@ export function Downloads() {
         >
           Save as PDF
         </button>
-        <button className="btn btn-outline w-1/6" onClick={handleDownloadImage}>
-          Save as JPG
-        </button>
       </div>
     </>
   )
