@@ -26,7 +26,7 @@ function getKey(namespace_id: string, key: string) {
         Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
         "Content-Type": "application/json",
       },
-    }
+    },
   )
     .then(async (response) => {
       const data = await response.json()
@@ -55,7 +55,7 @@ function createKey(namespace_id: string) {
         Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
         "Content-Type": "application/json",
       },
-    }
+    },
   )
     .then((res) => res.json())
     .then((data) => {
@@ -92,7 +92,7 @@ function createKey(namespace_id: string) {
               escape: 0.1,
               basicNeeds: 0.1,
               totalPeople: 0.4,
-            })
+            }),
           )
 
           fetch(
@@ -104,7 +104,7 @@ function createKey(namespace_id: string) {
                 "Content-Type": "application/json",
               },
               body: formData,
-            }
+            },
           )
             .then(async (response) => {
               const data = await response.json()
@@ -138,7 +138,7 @@ fetch(
       Authorization: `Bearer ${process.env.WORKERS_TOKEN}`,
       "Content-Type": "application/json",
     },
-  }
+  },
 )
   .then(async (response) => {
     const data = await response.json()
@@ -163,7 +163,7 @@ fetch(
             body: JSON.stringify({
               title: "unitedway",
             }),
-          }
+          },
         )
           .then(async (response) => {
             const data = await response.json()
