@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import Link from "next/link"
+import Logo from "./Logo"
 
 interface FormData {
   companyName: string
@@ -63,6 +65,20 @@ const Home: React.FC = () => {
   }, [warning])
 
   return (
+    <>
+      <div className="navbar bg-base-100 mt-2">
+        <div className="flex-1">
+          <Link className="btn btn-ghost normal-case text-xl" href="/">
+            United Way Impact Calculator
+          </Link>{" "}
+        </div>
+
+        <div className="navbar-end">
+          <div className="w-1/4">
+            <Logo />
+          </div>
+        </div>
+      </div>
     <div className="flex flex-row justify-center items-center w-full">
       <div className="mx-auto w-full max-w-xl">
         <p className="normal-case text-3xl text-center m-7 font-bold">
@@ -128,6 +144,8 @@ const Home: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
+
   )
 }
 
