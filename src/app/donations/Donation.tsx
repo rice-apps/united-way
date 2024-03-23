@@ -2,6 +2,7 @@
 import ImpactCarousel from "./ImpactCarousel"
 import { useEffect, useState } from "react"
 import { Downloads } from "./Downloads"
+import { Proportions } from "../types"
 
 type DonationInputs = {
   companyName: string | null
@@ -19,7 +20,7 @@ function Donation({ companyName, dollarsRaised }: DonationInputs) {
   }
 
   // get the proportions
-  const [proportionsMap, setProportionsMap] = useState(null)
+  const [proportionsMap, setProportionsMap]= useState<null | Proportions>(null)
 
   useEffect(() => {
     GetData()

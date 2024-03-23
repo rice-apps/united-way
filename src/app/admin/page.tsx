@@ -2,13 +2,36 @@
 
 import React, { useState } from "react"
 
-interface FormData {
+type dataFields =
+  | "stability"
+  | "development"
+  | "healthcare"
+  | "escape"
+  | "basicNeeds"
+  | "totalPeople"
+
+const data_fields: dataFields[] = [
+  "stability",
+  "development",
+  "healthcare",
+  "escape",
+  "basicNeeds",
+  "totalPeople",
+]
+
+type FormData = {
   pinNumber: string
-}
+} & Record<dataFields, number>
 
 function AdminLogin() {
   const [formData, setFormData] = useState<FormData>({
     pinNumber: "",
+    stability: 0,
+    development: 0,
+    healthcare: 0,
+    escape: 0,
+    basicNeeds: 0,
+    totalPeople: 0,
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,14 +45,24 @@ function AdminLogin() {
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    const verifyPIN = async (pin: string) => {
+    const updateProportions = async (fd: FormData) => {
       try {
-        const res = await fetch(`/api/verify/`, {
+        const res = await fetch(`/api/update/`, {
           method: "Post",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ pin: pin }),
+          body: JSON.stringify({
+            pin: fd.pinNumber,
+            data: {
+              stability: fd.stability,
+              development: fd.development,
+              healthcare: fd.healthcare,
+              escape: fd.escape,
+              basicNeeds: fd.basicNeeds,
+              totalPeople: fd.totalPeople,
+            },
+          }),
         })
         if (!res.ok) {
           throw new Error(res.statusText)
@@ -42,7 +75,7 @@ function AdminLogin() {
         console.error("Error verifying PIN:", error)
       }
     }
-    verifyPIN(formData.pinNumber)
+    updateProportions(formData)
   }
 
   const [password, setPassword] = useState("")
@@ -112,9 +145,33 @@ function AdminLogin() {
                   </button>
                 </div>
               </div>
+              <hr />
 
-              <button className="btn btn-outline self-center w-6/12 m-5 text-black bg-yellow hover:bg-orange rounded-3xl">
-                Sign in
+              <div className="grid grid-cols-3">
+                {data_fields.map((field) => (
+                  <div className="m-2" key={field}>
+                    <label htmlFor={field}>{field}</label>
+                    <input
+                      type="number"
+                      id={field}
+                      name={field}
+                      value={formData[field]}
+                      onChange={handleInputChange}
+                      placeholder={`Enter ${field}`}
+                      className="input mb-2 input-bordered bg-white w-full mt-3 text-black rounded-3xl font-normal"
+                      min={0}
+                      max={1}
+                      step={0.01}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="btn btn-outline self-center w-6/12 m-5 text-black bg-yellow hover:bg-orange rounded-3xl"
+                type="submit"
+              >
+                Update Data
               </button>
             </div>
           </form>
