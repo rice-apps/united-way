@@ -20,7 +20,7 @@ function Donation({ companyName, dollarsRaised }: DonationInputs) {
   }
 
   // get the proportions
-  const [proportionsMap, setProportionsMap]= useState<null | Proportions>(null)
+  const [proportionsMap, setProportionsMap] = useState<null | Proportions>(null)
 
   useEffect(() => {
     GetData()

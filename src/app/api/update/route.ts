@@ -31,12 +31,15 @@ export async function POST(req: Request) {
     json.basicNeeds < 0 ||
     json.basicNeeds > 1
   ) {
-    return NextResponse.json({ response: "Invalid data, must be between 0 and 1" }, { status: 200 })
+    return NextResponse.json(
+      { response: "Invalid data, must be between 0 and 1" },
+      { status: 200 },
+    )
   }
 
   const content = Buffer.from(JSON.stringify(json)).toString("base64")
 
-    // send a commit to github
+  // send a commit to github
   const response = await fetch(
     "https://api.github.com/repos/rice-apps/united-way/contents/public/data.json",
     {
@@ -50,17 +53,19 @@ export async function POST(req: Request) {
         message: "Update proportions",
         committer: {
           name: "United Way RiceApps",
-          email: "united-way-bot"
+          email: "united-way-bot",
         },
         content: content,
       }),
-    }
+    },
   )
 
   if (!response.ok) {
     return NextResponse.error()
-  }
-  else {
-    return NextResponse.json({ response: "Updated proportions" }, { status: 200 })
+  } else {
+    return NextResponse.json(
+      { response: "Updated proportions" },
+      { status: 200 },
+    )
   }
 }
