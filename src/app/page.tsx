@@ -75,13 +75,22 @@ const Home: React.FC = () => {
           >
             {mode === "full" ? "Individual" : "Company"}
           </button>
+          {/* <div className="toggle-button-cover">
+        <div className="button b2" id="button-10">
+          <input type="checkbox" className="checkbox" />
+          <div className="knobs">
+            <span>YES</span>
+          </div>
+          <div className="layer"></div>
+        </div>
+      </div> */}
           <form>
             <div className="flex flex-col justify-center align-middle">
               {mode === "full" && (
                 <div className="mt-6 w-full flex flex-col items-center">
                   <label
                     htmlFor="Company Name"
-                    style={{ marginRight: "190px" }}
+                    style={{ marginRight: "190px", color: "white"  }}
                   >
                     Company Name
                   </label>
@@ -99,7 +108,7 @@ const Home: React.FC = () => {
               <div className="mt-6 w-full flex flex-col items-center">
                 <label
                   htmlFor="Donation Amount"
-                  style={{ marginRight: "180px" }}
+                  style={{ marginRight: "180px", color: "white" } }
                 >
                   Donation Amount
                 </label>
