@@ -45,7 +45,7 @@ export async function POST(req: Request) {
   ) {
     return NextResponse.json(
       { response: "Invalid data, must be a number" },
-      { status: 200 }
+      { status: 200 },
     )
   } else {
     json.stability = Number(json.stability)
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
   ) {
     return NextResponse.json(
       { response: "Invalid data, must be between 0 and 1" },
-      { status: 200 }
+      { status: 200 },
     )
   }
 
@@ -93,7 +93,7 @@ export async function POST(req: Request) {
         Authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
-    }
+    },
   )
 
   if (!responseSha.ok) {
@@ -105,7 +105,6 @@ export async function POST(req: Request) {
   const sha = (await responseSha.json()).sha
 
   console.log("sha success: " + sha)
-
 
   // send a commit to github
   const response = await fetch(
@@ -126,7 +125,7 @@ export async function POST(req: Request) {
         sha: sha,
         content: content,
       }),
-    }
+    },
   )
 
   if (!response.ok) {
@@ -138,7 +137,7 @@ export async function POST(req: Request) {
     console.log(response)
     return NextResponse.json(
       { response: "Updated proportions" },
-      { status: 200 }
+      { status: 200 },
     )
   }
 }
