@@ -2,22 +2,9 @@
 
 import React, { useState } from 'react'
 
-type dataFields =
-  | "stability"
-  | "development"
-  | "healthcare"
-  | "escape"
-  | "basicNeeds"
-  | "totalPeople"
+type dataFields = 'stability' | 'development' | 'healthcare' | 'escape' | 'basicNeeds' | 'totalPeople'
 
-const data_fields: dataFields[] = [
-  "stability",
-  "development",
-  "healthcare",
-  "escape",
-  "basicNeeds",
-  "totalPeople",
-]
+const data_fields: dataFields[] = ['stability', 'development', 'healthcare', 'escape', 'basicNeeds', 'totalPeople']
 
 type FormData = {
   pinNumber: string
@@ -25,7 +12,7 @@ type FormData = {
 
 function AdminLogin() {
   const [formData, setFormData] = useState<FormData>({
-    pinNumber: "",
+    pinNumber: '',
     stability: 0,
     development: 0,
     healthcare: 0,
@@ -48,7 +35,7 @@ function AdminLogin() {
     const updateProportions = async (fd: FormData) => {
       try {
         const res = await fetch(`/api/update/`, {
-          method: "Post",
+          method: 'Post',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -142,7 +129,7 @@ function AdminLogin() {
               <hr />
 
               <div className="grid grid-cols-3">
-                {data_fields.map((field) => (
+                {data_fields.map(field => (
                   <div className="m-2" key={field}>
                     <label htmlFor={field}>{field}</label>
                     <input

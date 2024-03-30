@@ -1,6 +1,6 @@
-import Donation from "./Donation"
-import Link from "next/link"
-import Logo from "../Logo"
+import Donation from './Donation'
+import Link from 'next/link'
+import Logo from '../Logo'
 
 const page = ({
   params,
@@ -27,8 +27,8 @@ const page = ({
       <div className="navbar bg-base-100 mt-2">
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
-            {"<"}--
-          </Link>{" "}
+            {'<'}--
+          </Link>{' '}
         </div>
 
         <div className="navbar-end">
@@ -40,12 +40,9 @@ const page = ({
       <div>
         <div className="flex w-full justify-center flex-col mx-auto mb-5">
           <a className="text-xl font-semibold text-center">{label}</a>
-          <a className="text-lg font-semibold text-center">
-            made possible last year
-          </a>
+          <a className="text-lg font-semibold text-center">made possible last year</a>
           <a className="text-xl  text-center">
-            Based on campaign results of{" "}
-            <span className="font-bold text-2xl">${dollarsRaised}</span>
+            Based on campaign results of <span className="font-bold text-2xl">${dollarsRaised}</span>
           </a>
         </div>
         <Donation companyName={companyName} dollarsRaised={dollarsRaised} />

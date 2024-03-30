@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import Logo from "./Logo"
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Logo from './Logo'
 
 interface FormData {
   companyName: string
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
             United Way Impact Calculator
-          </Link>{" "}
+          </Link>{' '}
         </div>
 
         <div className="navbar-end">
@@ -81,24 +81,16 @@ const Home: React.FC = () => {
       </div>
       <div className="flex flex-row justify-center items-center w-full">
         <div className="mx-auto w-full max-w-xl">
-          <p className="normal-case text-3xl text-center m-7 font-bold">
-            Calculate Your Impact
-          </p>
+          <p className="normal-case text-3xl text-center m-7 font-bold">Calculate Your Impact</p>
           <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl relative">
-            <button
-              onClick={toggleMode}
-              className="btn btn-outline m-5 w-2/12 absolute top-0 right-0"
-            >
-              {mode === "full" ? "Individual" : "Company"}
+            <button onClick={toggleMode} className="btn btn-outline m-5 w-2/12 absolute top-0 right-0">
+              {mode === 'full' ? 'Individual' : 'Company'}
             </button>
             <form>
               <div className="flex flex-col justify-center align-middle">
-                {mode === "full" && (
+                {mode === 'full' && (
                   <div className="mt-6 w-full flex flex-col items-center">
-                    <label
-                      htmlFor="Company Name"
-                      style={{ marginRight: "190px" }}
-                    >
+                    <label htmlFor="Company Name" style={{ marginRight: '190px' }}>
                       Company Name
                     </label>
                     <input
@@ -113,10 +105,7 @@ const Home: React.FC = () => {
                   </div>
                 )}
                 <div className="mt-6 w-full flex flex-col items-center">
-                  <label
-                    htmlFor="Donation Amount"
-                    style={{ marginRight: "180px" }}
-                  >
+                  <label htmlFor="Donation Amount" style={{ marginRight: '180px' }}>
                     Donation Amount
                   </label>
                   <input
