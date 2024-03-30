@@ -16,14 +16,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ response: "No Pin" }, { status: 400 })
   }
 
+  console.log("pin success")
+
   if (token === null) {
     return NextResponse.json({ response: "No Token" }, { status: 500 })
   }
+
+  console.log("token success")
 
   // compare the
   if (actualPin !== userPin) {
     return NextResponse.json({ response: "Incorrect Pin" }, { status: 200 })
   }
+
+  console.log("pin correct")
 
   //  get the new data
   const json: Proportions = j.data
@@ -41,7 +47,16 @@ export async function POST(req: Request) {
       { response: "Invalid data, must be a number" },
       { status: 200 }
     )
+  } else {
+    json.stability = Number(json.stability)
+    json.development = Number(json.development)
+    json.healthcare = Number(json.healthcare)
+    json.escape = Number(json.escape)
+    json.basicNeeds = Number(json.basicNeeds)
+    json.totalPeople = Number(json.totalPeople)
   }
+
+  console.log("data success")
 
   // check that the data is valid, all numbers between 0 and 1
   if (
@@ -62,7 +77,35 @@ export async function POST(req: Request) {
     )
   }
 
+  console.log("data valid")
+
   const content = Buffer.from(JSON.stringify(json)).toString("base64")
+
+  console.log("content success")
+
+  // get the sha of the file
+  const responseSha = await fetch(
+    "https://api.github.com/repos/rice-apps/united-way/contents/public/data.json",
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }
+  )
+
+  if (!responseSha.ok) {
+    console.log("error")
+    console.log(responseSha)
+    return NextResponse.error()
+  }
+
+  const sha = (await responseSha.json()).sha
+
+  console.log("sha success: " + sha)
+
 
   // send a commit to github
   const response = await fetch(
@@ -80,14 +123,19 @@ export async function POST(req: Request) {
           name: "United Way RiceApps",
           email: "united-way-bot",
         },
+        sha: sha,
         content: content,
       }),
     }
   )
 
   if (!response.ok) {
+    console.log("error")
+    console.log(response)
     return NextResponse.error()
   } else {
+    console.log("response success")
+    console.log(response)
     return NextResponse.json(
       { response: "Updated proportions" },
       { status: 200 }
