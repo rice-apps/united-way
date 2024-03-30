@@ -49,14 +49,10 @@ export function Downloads() {
   return (
     <>
       <div className="hidden" ref={downloadRef}>
-        hahahahahahahahhahahasdfhalskdfjhalskjjdfh blah blah this is the thing
-        that downloads hopefully or something
+        hahahahahahahahhahahasdfhalskdfjhalskjjdfh blah blah this is the thing that downloads hopefully or something
       </div>
       <div className="flex w-full place-items-center justify-center my-2">
-        <button
-          className="btn btn-outline w-1/6 mr-2"
-          onClick={handleDownloadPdf}
-        >
+        <button className="btn btn-outline w-1/6 mr-2" onClick={handleDownloadPdf}>
           Save as PDF
         </button>
         <button className="btn btn-outline w-1/6" onClick={handleDownloadImage}>

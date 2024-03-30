@@ -30,8 +30,7 @@ function ImpactCarousel({
 
   useEffect(() => {
     if (carouselRef.current) {
-      carouselElements = carouselRef.current
-        .children as HTMLCollectionOf<HTMLDivElement>
+      carouselElements = carouselRef.current.children as HTMLCollectionOf<HTMLDivElement>
     }
 
     updateCarousel(0)
@@ -91,11 +90,7 @@ function ImpactCarousel({
       const currentElement = carouselElements[i]
 
       /* change the order of cards on top of each other */
-      if (
-        currentElement.classList.contains(
-          `z-${50 - Math.abs(i - previousIndex) * 10}`,
-        )
-      ) {
+      if (currentElement.classList.contains(`z-${50 - Math.abs(i - previousIndex) * 10}`)) {
         currentElement.classList.replace(
           `z-${50 - Math.abs(i - previousIndex) * 10}`,
           `z-${50 - Math.abs(i - activeIndex) * 10}`,
@@ -105,59 +100,39 @@ function ImpactCarousel({
       }
 
       /* change the brightness of cards not in the front */
-      if (
-        currentElement.classList.contains(
-          `brightness-${100 - Math.abs(i - previousIndex) * 25}`,
-        )
-      ) {
+      if (currentElement.classList.contains(`brightness-${100 - Math.abs(i - previousIndex) * 25}`)) {
         currentElement.classList.replace(
           `brightness-${100 - Math.abs(i - previousIndex) * 25}`,
           `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
         )
       } else {
-        currentElement.classList.add(
-          `brightness-${100 - Math.abs(i - activeIndex) * 25}`,
-        )
+        currentElement.classList.add(`brightness-${100 - Math.abs(i - activeIndex) * 25}`)
       }
 
       /* change the location of cards/move them over so they are stacked on top of each other */
       if (
         currentElement.classList.contains(
-          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${
-            Math.abs(i - previousIndex) * 10
-          }`,
+          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${Math.abs(i - previousIndex) * 10}`,
         )
       ) {
         currentElement.classList.replace(
-          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${
-            Math.abs(i - previousIndex) * 10
-          }`,
-          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${
-            Math.abs(i - activeIndex) * 10
-          }`,
+          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${Math.abs(i - previousIndex) * 10}`,
+          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${Math.abs(i - activeIndex) * 10}`,
         )
       } else {
         currentElement.classList.add(
-          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${
-            Math.abs(i - activeIndex) * 10
-          }`,
+          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${Math.abs(i - activeIndex) * 10}`,
         )
       }
 
       /* change the scale/size of cards */
-      if (
-        currentElement.classList.contains(
-          `scale-${100 - Math.abs(i - previousIndex) * 10}`,
-        )
-      ) {
+      if (currentElement.classList.contains(`scale-${100 - Math.abs(i - previousIndex) * 10}`)) {
         currentElement.classList.replace(
           `scale-${100 - Math.abs(i - previousIndex) * 10}`,
           `scale-${100 - Math.abs(i - activeIndex) * 10}`,
         )
       } else {
-        currentElement.classList.add(
-          `scale-${100 - Math.abs(i - activeIndex) * 10}`,
-        )
+        currentElement.classList.add(`scale-${100 - Math.abs(i - activeIndex) * 10}`)
       }
 
       // translate-x-40 translate-x-30 translate-x-20 translate-x-10 translate-x-0 -translate-x-10 -translate-x-20 -translate-x-30 -translate-x-40 z-50 z-40 z-30 z-20 z-10 brightness-100 brightness-75 brightness-50 brightness-25 brightness-0 scale-100 scale-90 scale-80 scale-70 scale-60
@@ -167,27 +142,14 @@ function ImpactCarousel({
   return (
     <div className="flex w-full place-items-center">
       {/* click left button */}
-      <button
-        onClick={() => updateCarousel(activeIndex - 1)}
-        className="btn btn-circle"
-      >
+      <button onClick={() => updateCarousel(activeIndex - 1)} className="btn btn-circle">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M15 7L10 12L15 17"
-            stroke="#000000"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M15 7L10 12L15 17" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
       {/* a carousel with 5 cards, styling included */}
-      <div
-        id="carousel"
-        className="grow grid justify-center items-center h-full"
-        ref={carouselRef}
-      >
+      <div id="carousel" className="grow grid justify-center items-center h-full" ref={carouselRef}>
         {carouselData.map((data, index) => (
           <div className="row-start-1 col-start-1 transition-all" key={index}>
             <ImpactCards
@@ -201,18 +163,9 @@ function ImpactCarousel({
       </div>
 
       {/* click right button */}
-      <button
-        onClick={() => updateCarousel(activeIndex + 1)}
-        className="btn btn-circle"
-      >
+      <button onClick={() => updateCarousel(activeIndex + 1)} className="btn btn-circle">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M10 7L15 12L10 17"
-            stroke="#000000"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M10 7L15 12L10 17" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
     </div>
