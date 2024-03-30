@@ -21,7 +21,7 @@ function ImpactCard({ imgURL, numData, unitText, descText }: CardInputs) {
           />
         </figure>
         <div className="card-body items-center text-center ">
-          <h1 className="card-title text-3xl my-0">
+          <h1 className="card-title text-3xl my-0 gradient-txt">
             {Math.round(numData)} {unitText.toLowerCase()}
           </h1>
           <p>{descText}</p>

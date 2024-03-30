@@ -32,6 +32,7 @@ function ImpactCarousel({
     if (carouselRef.current) {
       carouselElements = carouselRef.current
         .children as HTMLCollectionOf<HTMLDivElement>
+      console.log("set car ref")
     }
 
     updateCarousel(0)
@@ -75,12 +76,24 @@ function ImpactCarousel({
   /* updateCarousel function, which is called when the right/left buttons are clicked */
   /* switches the way the 5 impact cards are displayed */
   function updateCarousel(newIndex: number): void {
-    if (!carouselElements) return
+    console.log("updatecar", carouselElements?.length)
+    if (carouselElements == undefined) {
+      console.log(":(")
+      if (carouselRef.current) {
+        carouselElements = carouselRef.current
+          .children as HTMLCollectionOf<HTMLDivElement>
+        console.log("set car ref")
+      } else {
+        console.log("waa")
+        return
+      }
+    }
 
     // check if the index is out of bounds
     if (newIndex < 0) newIndex = carouselElements.length - 1
     else if (newIndex >= carouselElements.length) newIndex = 0
 
+    console.log("past")
     // update the active index
     const previousIndex = activeIndex
     activeIndex = newIndex
@@ -89,6 +102,7 @@ function ImpactCarousel({
     for (let i = 0; i < carouselElements.length; i++) {
       // get the current element
       const currentElement = carouselElements[i]
+      console.log("changeelem")
 
       /* change the order of cards on top of each other */
       if (
@@ -178,6 +192,7 @@ function ImpactCarousel({
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
+            // className="fill-current"
           />
         </svg>
       </button>

@@ -54,12 +54,12 @@ export function Downloads() {
       </div>
       <div className="flex w-full place-items-center justify-center my-2">
         <button
-          className="btn btn-outline w-1/6 mr-2"
+          className="btn btn-outline w-1/6 mr-2 rounded-full"
           onClick={handleDownloadPdf}
         >
           Save as PDF
         </button>
-        <button className="btn btn-outline w-1/6" onClick={handleDownloadImage}>
+        <button className="btn btn-outline w-1/6 rounded-full" onClick={handleDownloadImage}>
           Save as JPG
         </button>
       </div>
