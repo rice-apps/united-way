@@ -1,18 +1,8 @@
 import { NextResponse } from "next/server"
+import * as data from "../../../../public/data.json"
 
 export async function GET(request: Request) {
-  // the json format:
-  return NextResponse.json(
-    {
-      stability: 0.3,
-      development: 0.5,
-      healthcare: 0.2,
-      escape: 0.1,
-      basicNeeds: 0.1,
-      totalPeople: 0.4,
-    },
-    { status: 200 },
-  )
+  return NextResponse.json(data, { status: 200 })
 }
 
 // { "dollarsRaised": 500000,
