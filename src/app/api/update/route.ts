@@ -9,6 +9,16 @@ export async function POST(req: Request) {
   const userPin = j.pin
   // get the password from the env file
   const actualPin = process.env.PRIVATE_KEY
+  const token = process.env.GITHUB_TOKEN
+
+  // check if the pin is null
+  if (userPin === null) {
+    return NextResponse.json({ response: "No Pin" }, { status: 400 })
+  }
+
+  if (token === null) {
+    return NextResponse.json({ response: "No Token" }, { status: 500 })
+  }
 
   // compare the
   if (actualPin !== userPin) {
@@ -17,6 +27,21 @@ export async function POST(req: Request) {
 
   //  get the new data
   const json: Proportions = j.data
+
+  // check that all the data can be converted to numbers
+  if (
+    isNaN(json.stability) ||
+    isNaN(json.development) ||
+    isNaN(json.healthcare) ||
+    isNaN(json.escape) ||
+    isNaN(json.basicNeeds) ||
+    isNaN(json.totalPeople)
+  ) {
+    return NextResponse.json(
+      { response: "Invalid data, must be a number" },
+      { status: 200 }
+    )
+  }
 
   // check that the data is valid, all numbers between 0 and 1
   if (
@@ -33,7 +58,7 @@ export async function POST(req: Request) {
   ) {
     return NextResponse.json(
       { response: "Invalid data, must be between 0 and 1" },
-      { status: 200 },
+      { status: 200 }
     )
   }
 
@@ -46,7 +71,7 @@ export async function POST(req: Request) {
       method: "PUT",
       headers: {
         Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
       body: JSON.stringify({
@@ -57,7 +82,7 @@ export async function POST(req: Request) {
         },
         content: content,
       }),
-    },
+    }
   )
 
   if (!response.ok) {
@@ -65,7 +90,7 @@ export async function POST(req: Request) {
   } else {
     return NextResponse.json(
       { response: "Updated proportions" },
-      { status: 200 },
+      { status: 200 }
     )
   }
 }
