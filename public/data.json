@@ -1,8 +1,8 @@
 {
-  "stability": "0.3",
-  "development": "0.5",
-  "healthcare": "0.2",
-  "escape": "0.1",
-  "basicNeeds": "0.1",
-  "totalPeople": "0.4"
+  "stability": 0.3,
+  "development": 0.5,
+  "healthcare": 0.2,
+  "escape": 0.1,
+  "basicNeeds": 0.1,
+  "totalPeople": 0.4
 }

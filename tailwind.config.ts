@@ -23,7 +23,7 @@ const config: Config = {
       translate: {
         '30': '7.5rem',
       },
-      // can add or overridee styles here
+      // can add or override styles here
       colors: {
         blue: '#015191',
         purple: '#804B67',
