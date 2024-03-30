@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
-import Logo from "./Logo"
+import React from 'react'
+import Link from 'next/link'
+import Logo from './Logo'
 
 function NavBarComp() {
   return (
@@ -9,7 +9,7 @@ function NavBarComp() {
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
             United Way Impact Calculator
-          </Link>{" "}
+          </Link>{' '}
         </div>
 
         <div className="navbar-end">
