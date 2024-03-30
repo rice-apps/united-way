@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="default">
       <body className={inter.className}>
-        <NavBarComp />
         <main>{children}</main>
       </body>
     </html>
