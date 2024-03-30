@@ -7,20 +7,17 @@ function NavBarComp() {
     <>
       <div className="navbar bg-base-100 mt-2">
         <div className="navbar-start">
-        <div className="w-1/4">
-        <a href="/">
-
-          <Logo />
-          </a>
+          <div className="w-1/4">
+            <a href="/">
+              <Logo />
+            </a>
           </div>
         </div>
 
         <div className="navbar-end">
-
           <Link className="btn btn-ghost normal-case text-xl" href="/admin">
             Admin Login
           </Link>{" "}
-
         </div>
       </div>
     </>

@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                 <div className="mt-6 w-full flex flex-col items-center">
                   <label
                     htmlFor="Company Name"
-                    style={{ marginRight: "190px", color: "white"  }}
+                    style={{ marginRight: "190px", color: "white" }}
                   >
                     Company Name
                   </label>
@@ -108,7 +108,7 @@ const Home: React.FC = () => {
               <div className="mt-6 w-full flex flex-col items-center">
                 <label
                   htmlFor="Donation Amount"
-                  style={{ marginRight: "180px", color: "white" } }
+                  style={{ marginRight: "180px", color: "white" }}
                 >
                   Donation Amount
                 </label>
