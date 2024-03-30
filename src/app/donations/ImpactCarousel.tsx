@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react"
-import ImpactCards from "./ImpactCards"
+import { useRef, useEffect } from 'react'
+import ImpactCards from './ImpactCards'
 
 interface MyData {
   dollarsRaised: number
@@ -39,33 +39,33 @@ function ImpactCarousel({
 
   const carouselData = [
     {
-      imgURL: "/cards/youth.png",
+      imgURL: '/cards/youth.png',
       numData: development * dollarsRaised,
-      unitText: "Youth Development",
-      descText: "Supporting youth to succeed in school and in life",
+      unitText: 'Youth Development',
+      descText: 'Supporting youth to succeed in school and in life',
     },
     {
-      imgURL: "/cards/health.png",
+      imgURL: '/cards/health.png',
       numData: healthcare * dollarsRaised,
-      unitText: "Health Care",
-      descText: "Support people undergoing health care support",
+      unitText: 'Health Care',
+      descText: 'Support people undergoing health care support',
     },
     {
-      imgURL: "/cards/violence.png",
+      imgURL: '/cards/violence.png',
       numData: escape * dollarsRaised,
-      unitText: "Escape from Violence",
-      descText: "Support people to escape violent situations",
+      unitText: 'Escape from Violence',
+      descText: 'Support people to escape violent situations',
     },
     {
-      imgURL: "/cards/needs.png",
+      imgURL: '/cards/needs.png',
       numData: basicNeeds * dollarsRaised,
-      unitText: "Basic Needs",
-      descText: "Support people with basic needs like food and shelter",
+      unitText: 'Basic Needs',
+      descText: 'Support people with basic needs like food and shelter',
     },
     {
-      imgURL: "/cards/totalPeople.png",
+      imgURL: '/cards/totalPeople.png',
       numData: totalPeople * dollarsRaised,
-      unitText: "Total People",
+      unitText: 'Total People',
       descText: "Number of people whose lives you've improved via our services",
     },
   ]
@@ -123,22 +123,22 @@ function ImpactCarousel({
       /* change the location of cards/move them over so they are stacked on top of each other */
       if (
         currentElement.classList.contains(
-          `${i - previousIndex > 0 ? "translate-x" : "-translate-x"}-${
+          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${
             Math.abs(i - previousIndex) * 10
           }`,
         )
       ) {
         currentElement.classList.replace(
-          `${i - previousIndex > 0 ? "translate-x" : "-translate-x"}-${
+          `${i - previousIndex > 0 ? 'translate-x' : '-translate-x'}-${
             Math.abs(i - previousIndex) * 10
           }`,
-          `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
+          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${
             Math.abs(i - activeIndex) * 10
           }`,
         )
       } else {
         currentElement.classList.add(
-          `${i - activeIndex > 0 ? "translate-x" : "-translate-x"}-${
+          `${i - activeIndex > 0 ? 'translate-x' : '-translate-x'}-${
             Math.abs(i - activeIndex) * 10
           }`,
         )

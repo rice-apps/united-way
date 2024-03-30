@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server"
+import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
   //  get the user pin
@@ -8,8 +8,8 @@ export async function POST(req: Request) {
 
   // compare the
   if (actualPin === userPin) {
-    return NextResponse.json({ response: "Correct Pin" }, { status: 200 })
+    return NextResponse.json({ response: 'Correct Pin' }, { status: 200 })
   } else {
-    return NextResponse.json({ response: "Incorrect Pin" }, { status: 200 })
+    return NextResponse.json({ response: 'Incorrect Pin' }, { status: 200 })
   }
 }

@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
 interface FormData {
   pinNumber: string
@@ -8,7 +8,7 @@ interface FormData {
 
 function AdminLogin() {
   const [formData, setFormData] = useState<FormData>({
-    pinNumber: "",
+    pinNumber: '',
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,9 +25,9 @@ function AdminLogin() {
     const verifyPIN = async (pin: string) => {
       try {
         const res = await fetch(`/api/verify/`, {
-          method: "Post",
+          method: 'Post',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ pin: pin }),
         })
@@ -39,13 +39,13 @@ function AdminLogin() {
         console.log(resJSON)
         alert(resJSON.response)
       } catch (error) {
-        console.error("Error verifying PIN:", error)
+        console.error('Error verifying PIN:', error)
       }
     }
     verifyPIN(formData.pinNumber)
   }
 
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
   return (
@@ -61,7 +61,7 @@ function AdminLogin() {
                 <label htmlFor="PIN Number">PIN Number</label>
                 <div className="relative">
                   <input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     id="pinNumber"
                     name="pinNumber"
                     value={formData.pinNumber}

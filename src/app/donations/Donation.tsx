@@ -1,7 +1,7 @@
-"use client"
-import ImpactCarousel from "./ImpactCarousel"
-import { useEffect, useState } from "react"
-import { Downloads } from "./Downloads"
+'use client'
+import ImpactCarousel from './ImpactCarousel'
+import { useEffect, useState } from 'react'
+import { Downloads } from './Downloads'
 
 type DonationInputs = {
   companyName: string | null

@@ -1,4 +1,4 @@
-import Donation from "./Donation"
+import Donation from './Donation'
 
 const page = ({
   params,
@@ -17,7 +17,7 @@ const page = ({
 
   // make sure dollarRaised is a number
   if (amount === null) {
-    throw new Error("dollarsRaised is null")
+    throw new Error('dollarsRaised is null')
   }
   const dollarsRaised = parseFloat(amount)
   return (
@@ -28,7 +28,7 @@ const page = ({
           made possible last year
         </a>
         <a className="text-xl  text-center">
-          Based on campaign results of{" "}
+          Based on campaign results of{' '}
           <span className="font-bold text-2xl">${dollarsRaised}</span>
         </a>
       </div>

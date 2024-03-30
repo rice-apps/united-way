@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react'
 
 interface FormData {
   companyName: string
@@ -9,10 +9,10 @@ interface FormData {
 
 const Home: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    companyName: "",
-    donationAmt: "",
+    companyName: '',
+    donationAmt: '',
   })
-  const [warning, setWarning] = useState<string>("")
+  const [warning, setWarning] = useState<string>('')
   //const [companyName, setCompanyName] = useState('');
 
   // prevents non-numbers to be entered
@@ -36,20 +36,20 @@ const Home: React.FC = () => {
 
   const handleCalculate = () => {
     if (!formData.donationAmt) {
-      setWarning("Donation amount is required!")
+      setWarning('Donation amount is required!')
     } else if (Number(formData.donationAmt) < 1) {
-      setWarning("Donation amount must be greater than 0!")
-    } else if (mode === "full" && !formData.companyName) {
-      setWarning("Company name is required!")
+      setWarning('Donation amount must be greater than 0!')
+    } else if (mode === 'full' && !formData.companyName) {
+      setWarning('Company name is required!')
     } else {
       window.location.href = `/donations?name=${formData.companyName}&amount=${formData.donationAmt}`
     }
   }
 
-  const [mode, setMode] = useState("company")
+  const [mode, setMode] = useState('company')
 
   const toggleMode = () => {
-    setMode(mode === "full" ? "donationOnly" : "full")
+    setMode(mode === 'full' ? 'donationOnly' : 'full')
   }
 
   // Trigger a warning alert if the user misses to fill the required fields
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
     if (warning) {
       alert(warning)
       setTimeout(() => {
-        setWarning("")
+        setWarning('')
       }, 1000)
     }
   }, [warning])
@@ -73,15 +73,15 @@ const Home: React.FC = () => {
             onClick={toggleMode}
             className="btn btn-outline m-5 w-2/12 absolute top-0 right-0"
           >
-            {mode === "full" ? "Individual" : "Company"}
+            {mode === 'full' ? 'Individual' : 'Company'}
           </button>
           <form>
             <div className="flex flex-col justify-center align-middle">
-              {mode === "full" && (
+              {mode === 'full' && (
                 <div className="mt-6 w-full flex flex-col items-center">
                   <label
                     htmlFor="Company Name"
-                    style={{ marginRight: "190px" }}
+                    style={{ marginRight: '190px' }}
                   >
                     Company Name
                   </label>
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
               <div className="mt-6 w-full flex flex-col items-center">
                 <label
                   htmlFor="Donation Amount"
-                  style={{ marginRight: "180px" }}
+                  style={{ marginRight: '180px' }}
                 >
                   Donation Amount
                 </label>

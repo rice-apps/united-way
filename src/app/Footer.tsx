@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import React, { useEffect } from "react"
-import { themeChange } from "theme-change"
+import React, { useEffect } from 'react'
+import { themeChange } from 'theme-change'
 
 const Footer: React.FC = () => {
   useEffect(() => {
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     // 👆 false parameter is required for react project
   }, [])
 
-  const themes = ["dark", "light", "cupcake"]
+  const themes = ['dark', 'light', 'cupcake']
 
   return (
     <footer className="bg-base-200 py-4">

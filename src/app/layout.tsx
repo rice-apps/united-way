@@ -29,7 +29,6 @@ export const metadata: Metadata = {
     {
       name: 'RiceApps',
       url: 'https://github.com/rice-apps/',
-      
     },
   ],
 }
