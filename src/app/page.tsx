@@ -134,7 +134,7 @@ const Home: React.FC = () => {
             <label className="label"></label>
           </div>
           <div className="flex flex-row justify-center  m-7">
-            <Link className="btn btn-outline rounded-full bg-white text-black normal-case text-xl" href="/admin">
+            <Link className="btn btn-outline rounded-full bg-clear text-#A6ADBA normal-case text-xl" href="/admin">
               Admin Log-in
             </Link>{' '}
           </div>
