@@ -38,31 +38,31 @@ function ImpactCarousel({
 
   const carouselData = [
     {
-      imgURL: '/cards/youth.png',
+      imgURL: '/cards/youth-new.png',
       numData: development * dollarsRaised,
       unitText: 'Youth Development',
       descText: 'Supporting youth to succeed in school and in life',
     },
     {
-      imgURL: '/cards/health.png',
+      imgURL: '/cards/health-new.png',
       numData: healthcare * dollarsRaised,
       unitText: 'Health Care',
       descText: 'Support people undergoing health care support',
     },
     {
-      imgURL: '/cards/violence.png',
+      imgURL: '/cards/escape-new.png',
       numData: escape * dollarsRaised,
       unitText: 'Escape from Violence',
       descText: 'Support people to escape violent situations',
     },
     {
-      imgURL: '/cards/needs.png',
+      imgURL: '/cards/needs-new.png',
       numData: basicNeeds * dollarsRaised,
       unitText: 'Basic Needs',
       descText: 'Support people with basic needs like food and shelter',
     },
     {
-      imgURL: '/cards/totalPeople.png',
+      imgURL: '/cards/stability-new.png',
       numData: totalPeople * dollarsRaised,
       unitText: 'Total People',
       descText: "Number of people whose lives you've improved via our services",
