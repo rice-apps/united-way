@@ -24,15 +24,15 @@ const page = ({
   const dollarsRaised = parseFloat(amount)
   return (
     <>
-      <div className="navbar bg-base-100 mt-2">
+      <div className="navbar bg-base-100">
         <div className="flex-1">
-          <Link className="btn btn-ghost normal-case text-xl" href="/">
-            {'<'}--
-          </Link>{' '}
+          <Link className="btn btn-ghost text-4xl ml-5 " href="/">
+          ←
+          </Link>
         </div>
 
         <div className="navbar-end">
-          <div className="w-1/4">
+          <div className="w-1/4 mt-2">
             <Logo />
           </div>
         </div>
