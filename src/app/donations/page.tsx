@@ -2,6 +2,8 @@ import Donation from './Donation'
 import Link from 'next/link'
 import Logo from '../Logo'
 
+export const runtime = 'edge';
+
 const page = ({
   params,
   searchParams,
