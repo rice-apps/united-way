@@ -1,6 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# United Way (Houston) Impact Calculator 
 
-## Getting Started
+Our application is a donation impact calculator for the United Way of Greater Houston. The application caters to two primary user groups: general audiene and the United Way organization employees. 
+
+For the general audience, the donation impact calculator allows you to visualize what your donations could make an impact on based on the most recent United Way donation distribution data. For the United Way employees, they can visit the admin page to update the donation-to-cause distribution ratio, which will reflect to this github repository's `public/data.json` file. 
+
+## Maintenance
+
+TODO: Add details about hosting mainteanance. 
+
+## Building our server from scratch. 
 
 First, run the development server:
 
@@ -20,17 +28,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+
+## Learn more about our tech stack. 
+
+Our team utilized Next.js as our web framework and Tailwind as our CSS framework. 
 
 To learn more about Next.js, take a look at the following resources:
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To learn more about TailwindCSS, take a look at the following resources: 
+` [Tailwind CSS: Utility-First Fundamentals](https://tailwindcss.com/docs/utility-first)
