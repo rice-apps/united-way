@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Logo from './Logo'
+import React, { useState, useEffect } from 'react'
 
 interface FormData {
   companyName: string
@@ -10,6 +11,7 @@ interface FormData {
 }
 
 const Home: React.FC = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState<FormData>({
     companyName: '',
     donationAmt: '',
@@ -44,7 +46,7 @@ const Home: React.FC = () => {
     } else if (mode === 'full' && !formData.companyName) {
       setWarning('Company name is required!')
     } else {
-      window.location.href = `/donations?name=${formData.companyName}&amount=${formData.donationAmt}`
+      router.push(`/donations?name=${formData.companyName}&amount=${formData.donationAmt}`)
     }
   }
 
