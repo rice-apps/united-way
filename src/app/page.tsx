@@ -127,17 +127,15 @@ const Home: React.FC = () => {
                     Calculate
                   </button>
                 </div>
-
               </div>
             </form>
             <label className="label"></label>
           </div>
-          <div className ="flex flex-row justify-center  m-7">
+          <div className="flex flex-row justify-center  m-7">
             <Link className="btn btn-outline rounded-full bg-white text-black normal-case text-xl" href="/admin">
               Admin Log-in
             </Link>{' '}
           </div>
-
         </div>
       </div>
     </>
