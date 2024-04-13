@@ -6,11 +6,11 @@ For the general audience, the donation impact calculator allows you to visualize
 
 ## How do you access it?
 
-TODO: Add the official route.
+You can access our website at [uway.pages.dev](https://uway.pages.dev/). You can view our Figma for all the design docs in [https://tinyurl.com/uway-riceapps-figma](https://www.figma.com/file/o40E59Fu8lC1mBvqWZiPTj/United-Way?type=design&node-id=0-1&mode=design&t=pkojJ9duHhqwKRvG-0). 
 
 ## Maintenance
 
-TODO: Add details about hosting mainteanance.
+Our website requires the generation of a new GITHUB token specific to this repository every year. Current expiration date is March 23rd, 2025. This Github token will be added to the `.env` file at the top-level repository, in the format specified by `.env.tmp`. The PRIVATE_KEY field refers to the admin password for United Way employees to update the donation ratios. For more about Github tokens, please refer to this [page](https://docs.github.com/en/actions/security-guides/automatic-token-authentication). 
 
 ## Future Directions
 
