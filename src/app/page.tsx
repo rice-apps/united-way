@@ -82,7 +82,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-row justify-center items-center w-full">
-        <div className="mx-auto w-full max-w-xl">
+        <div className="mx-auto w-full max-w-xl justify-center">
           <p className="normal-case text-3xl text-center m-7 font-bold">Calculate Your Impact</p>
           <div className="bg-gradient-to-br from-blue from-0% via-purple via-75% to-red to-100% rounded-2xl form-control w-full max-w-xl relative">
             <button onClick={toggleMode} className="btn btn-outline m-5 w-2/12 absolute top-0 right-0">
@@ -132,6 +132,11 @@ const Home: React.FC = () => {
               </div>
             </form>
             <label className="label"></label>
+          </div>
+          <div className="flex flex-row justify-center  m-7">
+            <Link className="btn btn-outline rounded-full bg-white text-black normal-case text-xl" href="/admin">
+              Admin Log-in
+            </Link>{' '}
           </div>
         </div>
       </div>
