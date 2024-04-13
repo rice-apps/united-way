@@ -6,7 +6,7 @@ For the general audience, the donation impact calculator allows you to visualize
 
 ## How do you access it?
 
-TODO: Add the official route.
+You can access our website at https://uway.pages.dev/.
 
 ## Maintenance
 
