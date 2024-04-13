@@ -1,6 +1,8 @@
 import { Proportions } from '@/app/types'
 import { NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 export async function POST(req: Request) {
   const j = await req.json()
   console.log(j)

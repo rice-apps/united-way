@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 export async function POST(req: Request) {
   //  get the user pin
   const userPin = (await req.json()).pin
