@@ -21,7 +21,7 @@ const page = ({
   if (amount === null) {
     throw new Error('dollarsRaised is null')
   }
-  const dollarsRaised = parseFloat(amount)
+  const dollarsRaised = amount ? parseInt(amount as string) : 0
   return (
     <>
       <div className="navbar bg-base-100 mt-2">
@@ -45,7 +45,7 @@ const page = ({
             Based on campaign results of <span className="font-bold text-2xl">${dollarsRaised}</span>
           </a>
         </div>
-        <Donation companyName={companyName} dollarsRaised={dollarsRaised} />
+        <Donation companyName={(companyName as string) || ''} dollarsRaised={dollarsRaised} />
       </div>
     </>
   )
