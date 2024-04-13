@@ -2,3 +2,5 @@ node_modules
 build
 coverage
 public
+pnpm-lock.yaml
+package-lock.json
