@@ -27,7 +27,7 @@ const page = ({
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link className="btn btn-ghost text-4xl ml-5 " href="/">
-          ←
+            ←
           </Link>
         </div>
 
